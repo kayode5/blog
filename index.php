@@ -6,7 +6,7 @@ include 'include/header.php';
 ?>
 <body id="bg">
 <div class="page-wraper">
-<div id="loading-area"></div>
+<!-- <div id="loading-area"></div> -->
 	
 	<!-- header -->
     <header class="site-header mo-left header-full header">
