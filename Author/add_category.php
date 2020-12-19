@@ -171,7 +171,7 @@ $id = $_SESSION['authorid'];
                 	include'connection.php'; //including the database config 
                 	if(isset($_POST['post'])) //if the submit button is clicked
                 	{
-						$category=mysqli_real_escape_string($con, htmlspecialchars($_POST['category'])); 
+						$category=mysqli_real_escape_string($con, $_POST['category']); 
 						
 							$query=mysqli_query($con,"INSERT INTO `category`(id, category) VALUES (NULL, '$category')"); // insert what was written into the database with table name blog
 							if($query){

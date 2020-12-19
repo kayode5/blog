@@ -13,8 +13,8 @@ include '../admin/connection.php';
       }  
       else  
       {  
-           $username = mysqli_real_escape_string($con, htmlspecialchars($_POST["username"]));  
-           $password = mysqli_real_escape_string($con, htmlspecialchars($_POST["password"]));  
+           $username = mysqli_real_escape_string($con, $_POST["username"]);  
+           $password = mysqli_real_escape_string($con, $_POST["password"]);  
            $approve = "approve";
            $query = "SELECT * FROM author WHERE username = '$username' AND status = '$approve'";  
            $result = mysqli_query($con, $query);  

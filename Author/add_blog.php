@@ -171,8 +171,8 @@ $id = $_SESSION['authorid'];
                 	include'../admin/connection.php'; //including the database config 
                 	if(isset($_POST['post'])) //if the submit button is clicked
                 	{
-						$title=mysqli_real_escape_string($con, htmlspecialchars($_POST['title'])); //get the name inputted on this field
-						$content=mysqli_real_escape_string($con, htmlspecialchars($_POST['content'])); //get the name inputted on this field
+						$title=mysqli_real_escape_string($con, $_POST['title']); //get the name inputted on this field
+						$content=mysqli_real_escape_string($con, $_POST['content']); //get the name inputted on this field
 						$date=date('Y-m-d H:i');
 						$category=$_POST['category']; //get the name inputted on this field
                 		$target = "../admin/images/"; // this is the folder the image files would be moved into

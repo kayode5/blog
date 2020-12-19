@@ -166,10 +166,10 @@ $id = $_SESSION['authorid'];
 							      }  
 							      else  
 							      {  
-							           $pass1 = mysqli_real_escape_string($con, htmlspecialchars($_POST["pass1"]));  
-							           $pass3 = mysqli_real_escape_string($con, htmlspecialchars($_POST["pass3"]));
+							           $pass1 = mysqli_real_escape_string($con, $_POST["pass1"]);  
+							           $pass3 = mysqli_real_escape_string($con, $_POST["pass3"]);
 							           $pass3 = password_hash($pass3, PASSWORD_DEFAULT);
-							           $pass2 = mysqli_real_escape_string($con, htmlspecialchars($_POST["pass2"]));  
+							           $pass2 = mysqli_real_escape_string($con, $_POST["pass2"]);  
            							   $pass2 = password_hash($pass2, PASSWORD_DEFAULT);
 							           $query = "SELECT * FROM admin WHERE id = '$getid'";  
 							           $result = mysqli_query($con, $query);  
@@ -235,11 +235,11 @@ $id = $_SESSION['authorid'];
                 	include '../admin/connection.php'; //including the database config 
                 	if(isset($_POST['update'])) //if the submit button is cicked
                 	{
-                		$username=mysqli_real_escape_string($con, htmlspecialchars($_POST['username']));//get the name inputted on this field
-                		$email=mysqli_real_escape_string($con, htmlspecialchars($_POST['email']));
-                		$location=mysqli_real_escape_string($con, htmlspecialchars($_POST['location']));
-                		$phone=mysqli_real_escape_string($con, htmlspecialchars($_POST['phone'])); //get the name inputted on this field
-                		$bio=mysqli_real_escape_string($con, htmlspecialchars($_POST['bio']));
+                		$username=mysqli_real_escape_string($con,$_POST['username']);//get the name inputted on this field
+                		$email=mysqli_real_escape_string($con,$_POST['email']);
+                		$location=mysqli_real_escape_string($con,$_POST['location']);
+                		$phone=mysqli_real_escape_string($con,$_POST['phone']); //get the name inputted on this field
+                		$bio=mysqli_real_escape_string($con,$_POST['bio']);
                 		
 						$query="UPDATE author SET  username='$username', email='$email', location='$location', phone='$phone', bio='$bio' WHERE id='$getid'";// query to update the table by id
 						if(mysqli_query($con, $query))  
