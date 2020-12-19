@@ -4,75 +4,19 @@
 session_start();
 
 //Check whether the session variable SESS_MEMBER_ID is present or not
-if (!isset($_SESSION['uname']) || !isset($_SESSION['id']) ) {
+if (!isset($_SESSION['uname']) || !isset($_SESSION['id'])) {
     header("location: login.php");
     exit();
 }
 
 
 $name = $_SESSION['uname'];
-$id = $_SESSION['id'];
 ?>
-
-<!doctype html>
-<html lang="en" dir="ltr">
-
-
-<!-- Mirrored from laravel.spruko.com/yoha/Sidemenu-Icon-Dark/index3 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Oct 2020 12:12:31 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
-<head>
-
-	<!-- META DATA -->
-	<meta charset="UTF-8">
-	<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="Yoha –  HTML5 Bootstrap Admin Template">
-	<meta name="author" content="Spruko Technologies Private Limited">
-	<meta name="keywords" content="php admin panel template, laravel dashboard template, best laravel admin panel, laravel admin dashboard, laravel dashboard template, best admin panel for laravel, laravel admin dashboard template, laravel admin template bootstrap 4, laravel bootstrap admin template, best admin panel for laravel, php admin panel template, laravel admin dashboard, laravel admin template bootstrap 4, laravel bootstrap admin template, laravel admin dashboard template,">
-
-	<!-- FAVICON -->
-		<link rel="shortcut icon" type="image/x-icon" href="assets/images/brand/favicon.ico" />
-
-		<!-- TITLE -->
-		<title>Yoha – HTML5 Bootstrap Admin Template</title>
-
-		<!-- BOOTSTRAP CSS -->
-		<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-
-		<!-- STYLE CSS -->
-		<link href="assets/css/style.css" rel="stylesheet" />
-		<link href="assets/css/skin-modes.css" rel="stylesheet" />
-		<link href="assets/css/dark-style.css" rel="stylesheet" />
-
-		<!-- SIDE-MENU CSS -->
-		<link href="assets/css/sidemenu.css" rel="stylesheet">
-
-		<!--PERFECT SCROLL CSS-->
-		<link href="assets/plugins/p-scroll/perfect-scrollbar.css" rel="stylesheet" />
-
-		<!-- CUSTOM SCROLL BAR CSS-->
-		<link href="assets/plugins/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet" />
-
-		<!--- FONT-ICONS CSS -->
-		<link href="assets/css/icons.css" rel="stylesheet" />
-
-
-				<!-- SIDEBAR CSS -->
-		<link href="assets/plugins/sidebar/sidebar.css" rel="stylesheet">
-
-		<!-- COLOR SKIN CSS -->
-		<link id="theme" rel="stylesheet" type="text/css" media="all" href="assets/colors/color1.css" />
-		
-		<!-- Switcher CSS -->
-		<link href="assets/switcher/css/switcher.css" rel="stylesheet">
-		<link href="assets/switcher/demo.css" rel="stylesheet">
-		
-		</head>
-
+<?php include 'include/header.php'?>
 	<body class="app sidebar-mini dark-mode">
 		
 		<!-- Start Switcher -->
-		
+	
 		<!-- End Switcher -->
 		
 				<!-- GLOBAL-LOADER -->
@@ -82,7 +26,7 @@ $id = $_SESSION['id'];
 				<!-- /GLOBAL-LOADER -->
 
 				<!-- PAGE -->
-				<?php include 'include/sidebar.php'; ?>
+				<?php include 'include/sidebar.php' ?>
 				<!--/APP-SIDEBAR-->						<!-- App-Header -->
 				<div class="app-header header">
 					<div class="container-fluid">
@@ -96,7 +40,7 @@ $id = $_SESSION['id'];
 									<path d="M0 0h24v24H0V0z" fill="none" />
 									<path d="M21 11.01L3 11v2h18zM3 16h12v2H3zM21 6H3v2.01L21 8z" /></svg>
 							</a><!-- sidebar-toggle-->
-						
+							
 							<div class="d-flex ml-auto header-right-icons header-search-icon">
 								<button class="navbar-toggler navresponsive-toggler d-md-none" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
 									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" class="navbar-toggler-icon">
@@ -113,8 +57,9 @@ $id = $_SESSION['id'];
 								</div><!-- FULL-SCREEN -->
 								<!-- NOTIFICATIONS -->
 								<!-- MESSAGE-BOX -->
-							<?php include 'include/top_profile.php'; ?>
-								<!-- SIDE-MENU -->
+								
+								<?php include 'include/top_profile.php'; ?>
+							<!-- SIDE-MENU -->
 							</div>
 						</div>
 					</div>
@@ -127,142 +72,218 @@ $id = $_SESSION['id'];
 											<!-- PAGE-HEADER -->
 			<div class="page-header">
 				<div>
-					<h1 class="page-title">Blog Post</h1>
+					<h1 class="page-title">Hi! Welcome To Dashboard</h1>
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="#">Home</a></li>
-						<li class="breadcrumb-item active" aria-current="page">View Blog Posts</li>
+						<li class="breadcrumb-item active" aria-current="page">View Authors</li>
 					</ol>
 				</div>
-				
+				<!--<div class="ml-auto pageheader-btn">
+					<div class="btn-list">
+						<a href="#" class="btn btn-primary btn-icon text-white" data-toggle="tooltip" title="Add order" data-placement="top">
+							<span>
+								<i class="fe fe-shopping-cart"></i>
+							</span>
+						</a>
+						<a href="#" class="btn btn-orange btn-icon text-white" data-toggle="tooltip" title="Download" data-placement="top">
+							<span>
+								<i class="fe fe-download"></i>
+							</span>
+						</a>
+						<a href="#" class="btn btn-info btn-icon text-white" data-toggle="tooltip" title="Add User" data-placement="top">
+							<span>
+								<i class="fe fe-plus"></i>
+							</span>
+						</a>
+						<a href="#" class="btn btn-secondary btn-icon text-white dropdown-toggle" data-toggle="dropdown">
+							<span>
+								<i class="fe fe-external-link"></i>
+							</span> Export <span class="caret"></span>
+						</a>
+						<div class="dropdown-menu" role="menu">
+							<a href="#" class="dropdown-item"><i class="bx bxs-file-pdf mr-2"></i>Export as Pdf</a>
+							<a href="#" class="dropdown-item"><i class="bx bxs-file-image mr-2"></i>Export as Image</a>
+							<a href="#" class="dropdown-item"><i class="bx bxs-file mr-2"></i>Export as Excel</a>
+						</div>
+					</div>
+				</div>-->
 			</div>
 			<!-- PAGE-HEADER END -->
 											<!-- ROW-1 -->
-			
-			<!-- ROW-1 End-->
-		<?php
-include ("connection.php");
-
-
-$sql = "SELECT * FROM post WHERE postid = $id "; //select all from the table blog
-$result = mysqli_query($con,$sql); // query that sql selection
-$count = mysqli_num_rows($result); // count the number of rows in that table
-
-$sql1 = "select * from comment";
-$result1 = mysqli_query($con,$sql1);
-$count1 = mysqli_num_rows($result1);
-
-?>
-			<!-- ROW-1 OPEN -->
 			<div class="row">
-				<div class="col-md-12 col-lg-3 col-xl-3">
-					<div class="card overflow-hidden">
-						<div class="card-body pb-0">
-							<div class="text-center mb-5">
-								<h5 class="mb-1">Admin Posts</h5>
-								<h2 class="mb-0 number-font fs-30"><?php echo $count ?></h2>
-							</div>
-							<div class="row mb-2">
-								<div class="col-6 text-center border-right">
-									<p class="mb-1 text-muted fs-12">Last month</p>
-									<h5 class="mb-0 fs-14">1,876</h5>
+				<div class="col-md-12">
+					<div class="card  banner">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-xl-3 col-lg-2 text-center">
+									<img src="assets/images/pngs/profit.png" alt="img" class="w-95">
 								</div>
-								<div class="col-6 text-center">
-									<p class="mb-1 text-muted fs-12">Last Year</p>
-									<h5 class="mb-0 fs-14">9,342</h5>
-								</div>
-							</div>
-						</div>
-						<div>
-							<canvas id="widget1" class=""></canvas>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-12 col-lg-3 col-xl-3">
-					<div class="card overflow-hidden">
-						<div class="card-body pb-0">
-							<div class="text-center mb-5">
-								<h5 class="mb-1">Total Comments</h5>
-								<h2 class="mb-0  number-font fs-30">678</h2>
-							</div>
-							<div class="row mb-2">
-								<div class="col-6 text-center border-right">
-									<p class="mb-1 text-muted fs-12">Last Week</p>
-									<h5 class="mb-0 fs-14">89</h5>
-								</div>
-								<div class="col-6 text-center">
-									<p class="mb-1 text-muted fs-12">Today</p>
-									<h5 class="mb-0 fs-14">435</h5>
-								</div>
-							</div>
-						</div>
-						<div>
-							<canvas id="widget2" class=""></canvas>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-12 col-lg-6 col-xl-6">
-					<div class="row">
-						<div class="col-sm-12 col-md-6 col-lg-6">
-							<div class="card overflow-hidden">
-								<div class="card-body">
-									<div class="d-flex">
-										<h6 class="mb-1">Total Likes</h6>
+								<div class="col-xl-9 col-lg-10 pl-lg-0">
+									<div class="row">
+										<div class="col-xl-7 col-lg-6">
+											<div class="text-left text-white mt-xl-4">
+												<h3 class="font-weight-semibold">Welcome Admin</h3>
+												
+												<p class="mb-lg-0 text-white-50">If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+											</div>
+										</div>
+										<div class="col-xl-5 col-lg-6 text-lg-center mt-xl-4">
+											
+											<h2 class="display-2 mb-3 number-font text-white">Welcome Admin</h2>
+											<div class="btn-list mb-xl-0">
+												
+												<a href="#" class="btn btn-white mb-xl-0" id="skip">Dismiss Message</a>
+											</div>
+										</div>
 									</div>
-									<h3 class="text-dark count mt-0 number-font">7,986</h3>
-									<div class="progress progress-sm mt-0 mb-1 h-1">
-										<div class="progress-bar bg-orange w-75" role="progressbar"></div>
-									</div>
-									<div class="text-muted"><i class="fa fa-caret-up text-muted"></i> 10% increases</div>
 								</div>
 							</div>
 						</div>
-						<div class=" col-sm-12 col-md-6 col-lg-6">
-							<div class="card overflow-hidden">
-								<div class="card-body ">
-									<div class="d-flex">
-										<h6 class="mb-1">Total Downloads</h6>
-									</div>
-									<h3 class="text-dark count mt-0 number-font">4,876</h3>
-									<div class="progress progress-sm mt-0 mb-2 h-1">
-										<div class="progress-bar bg-secondary w-45" role="progressbar"></div>
-									</div>
-									<div class="text-muted"><i class="fa fa-caret-down text-muted"></i>12% decrease</div>
-								</div>
-							</div>
-						</div>
-						
 					</div>
 				</div>
 			</div>
-			<!-- ROW-1 CLOSED -->
+			<!-- ROW-1 End-->
 
-			<!-- ROW-2 OPEN -->
+			<!-- Row -->
 			
-			<!-- ROW-2 CLOSED -->
+			<!-- Row-1 End -->
 
-			<!-- ROW-3 OPEN-->
-			
-			<!-- ROW-3 CLOSED -->
+			<!-- ROW-2 -->
+			<!--<div class="row">
+				<div class="col-lg-4 col-md-12 col-sm-12 col-xl-3">
+					<div class="card">
+						<div class="card-header">
+							<h3 class="card-title">Sales By Category</h3>
+						</div>
+						<div class="card-body">
+							<div class="">
+								<canvas id="canvasDoughnut" class="chartsh"></canvas>
+							</div>
+							<div class="mt-5 fs-12">
+								<div class="float-left mr-3"><span class="dot-label bg-primary mr-1"></span><span class="">Mens</span></div>
+								<div class="float-left mr-3"><span class="dot-label bg-secondary mr-1"></span><span class="">Womens</span></div>
+								<div class="float-left mr-3"><span class="dot-label bg-secondary1 mr-1"></span><span class="">Kids</span></div>
+								<div class="float-left mr-3"><span class="dot-label bg-canvas1 mr-1"></span><span class="">Electronics</span></div>
+								<div class="float-left"><span class="dot-label bg-canvas2 mr-1"></span><span class="">Home & Furniture</span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-8 col-md-12 col-sm-12 col-xl-9">
+					<div class="card overflow-hidden">
+						<div class="card-header">
+							<h3 class="card-title">Monthly Sales Statistics</h3>
+						</div>
+						<div class="card-body">
+							<div id="sales" class=""></div>
+						</div>
+					</div>
+				</div>
+			</div>-->
+			<!-- ROW-2 END -->
 
-			<!-- ROW-4 OPEN -->
-			
+			<!-- Row-3 -->
+			<!--<div class="row">
+				<div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+					<div class="card overflow-hidden">
+						<div class="card-body pb-0">
+							<div class="">
+								<div class="d-flex">
+									<div class="">
+										<p class="mb-1">Monthly Sales</p>
+										<h2 class="mb-1  number-font">42,567</h2>
+										<p class="text-muted  mb-0"><span class="text-muted fs-13 mr-2">(+43%)</span> than Last week</p>
+									</div>
+									<div class="ml-auto">
+										<i class="bx bxs-dollar-circle fs-40 text-secondary"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="chart-wrapper">
+							<canvas id="widgetChart1" class=""></canvas>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+					<div class="card overflow-hidden">
+						<div class="card-header">
+							<h3 class="card-title">Sales Overview</h3>
+						</div>
+						<div class="card-body">
+							<div class="mb-5">
+								<p class="mb-2">Total Profit<span class="float-right"><b>51,234</b><span class="text-muted ml-1">(80%)</span></span></p>
+								<div class="progress h-2">
+									<div class="progress-bar bg-primary w-80 " role="progressbar"></div>
+								</div>
+							</div>
+							<div class="mb-5">
+								<p class="mb-2">Total Income<span class="float-right"><b>12,786</b><span class="text-muted ml-1">(50%)</span></span></p>
+								<div class="progress h-2">
+									<div class="progress-bar bg-secondary w-50 " role="progressbar"></div>
+								</div>
+							</div>
+							<div class="mb-0">
+								<p class="mb-2">Total Expenses<span class="float-right"><b>32,167</b><span class="text-muted ml-1">(60%)</span></span></p>
+								<div class="progress h-2">
+									<div class="progress-bar bg-secondary1 w-60 " role="progressbar"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+					<div class="card">
+						<div class="card-body">
+							<div class="">
+								<p class="mb-1">Your Current Balance</p>
+								<h2 class="mb-1  number-font">$32745.00</h2>
+							</div>
+							<div class="mt-5">
+								<p class="mb-1 d-flex">
+									<span class=""><i class="fa fa-money text-muted mr-2 mt-1 fs-16"></i></span>
+									<span class="fs-13 font-weight-normal text-muted mr-2">Received Amount </span> : <span class="ml-auto fs-14">+ 1,50,500</span>
+								</p>
+								<p class="mb-1 d-flex">
+									<span class=""><i class="fa fa-credit-card mr-2 mt-1 fs-16 text-muted"></i></span>
+									<span class="fs-13 font-weight-normal text-muted mr-2">Sent Amount </span> : <span class="ml-auto fs-14">- 25,500</span>
+								</p>
+								<p class="d-flex">
+									<span class=""><i class="fa fa-university mr-2 fs-16 text-muted"></i></span>
+									<span class="fs-13 font-weight-normal text-muted mr-2">Total Amount </span> : <span class="ml-auto font-weight-bold fs-15">$ 1,00,500</span>
+								</p>
+							</div>
+							<div class="row mt-3">
+								<div class="col-6">
+									<a class="btn btn-primary btn-block btn-rounded" href="#">Transfer</a>
+								</div>
+								<div class="col-6">
+									<a class="btn btn-secondary btn-rounded btn-block" href="#">Receive</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>-->
+			<!-- Row-3 End -->
+
+			<!-- ROW-4 -->
 			<div class="row">
 				<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
 					<div class="card">
-						<div class="card-header ">
-							<h3 class="card-title">Blog Posts</h3>
+						<div class="card-header">
+							<h3 class="card-title">Recent Authors</h3>
 						</div>
 						<div class="card-body">
-							<div class="table-responsive service">
-								<table class="table table-bordered table-hover mb-0 text-nowrap">
-									
+							<div class="table-responsive">
+								<table class="table table-bordered table-hover text-nowrap mb-0">
 									<thead>
 										<tr>
 											<th>Number</th>
-											<th>Category</th>
-											<th>Blog Title</th>
-											
-											<th>Date</th>
+											<th>Usename</th>
+											<th>Email</th>
+											<th>Date Joined</th>
+											<th>Status</th>
 											<th>Action</th>
 										</tr>
 									</thead>
@@ -270,33 +291,35 @@ $count1 = mysqli_num_rows($result1);
 										<?php
 									include 'connection.php';
 								
-                        			$query=mysqli_query($con,"SELECT * FROM post WHERE postid = '$id'");
+                        			$query=mysqli_query($con,"SELECT * FROM author");
                         			while($row=mysqli_fetch_array($query))
-                        				{ $id = $row['id'];
-                        				$date = $row['date'];
+                        				{ $id = $row['id']; 
+                        			$date = $row['date'];
                         				$newDate = date("d M Y", strtotime($date));
     									$new_date = date('dS F, Y', strtotime($newDate)); ?>
 										<tr>
-											<td><?php echo $row['id']; ?></td>
-											<td><?php echo $row['category']; ?></td>
-											<td><?php echo $row['title']; ?></td>
-											
+											<td><?php echo $row['id'] ?></td>
+											<td><?php echo $row['username'] ?></td>
+											<td><?php echo $row['email'] ?></td>
 											<td><?php echo $new_date ?></td>
+											<td class="font-weight-semibold fs-15"><?php echo $row['status'] ?></td>
 											<td>
-												<a href="edit_blog.php?id=<?php echo $id?>" class="btn btn-primary btn-sm text-white mb-1" data-original-title="View" data-toggle="tooltip"><i class="fa fa-eye"></i></a> <a href="delete_blog.php?id=<?php echo $id?>" class="btn btn-danger btn-sm text-white mb-1" data-original-title="Delete" data-toggle="tooltip"><i class="fa fa-trash-o"></i></a><br>
+												<a href="delete_user.php?id=<?php echo $id?>" class="btn btn-danger">Delete</a>
 											</td>
 										</tr>
-											<?php } ?>
+										<?php }?>
+									
 									</tbody>
-								
 								</table>
 							</div>
 						</div>
 					</div>
-				</div><!-- COL END -->
-			</div>
-			
-			<!-- ROW-4 CLOSED -->
+				</div>
+							</div>
+			<!-- ROW-4 END -->
+ 
+			<!-- ROW-5 -->
+			<!-- ROW-5 END -->
 							</div><!-- End Page -->
 						</div>
 					</div>
@@ -424,70 +447,4 @@ $count1 = mysqli_num_rows($result1);
 				</div>
 			</div>
 			<!-- SIDE-BAR CLOSED -->					<!-- FOOTER -->
-			<footer class="footer">
-				<div class="container">
-					<div class="row align-items-center flex-row-reverse">
-						<div class="col-md-12 col-sm-12 text-center">
-							Copyright © 2020 <a href="#"></a>.All rights reserved.
-						</div>
-					</div>
-				</div>
-			</footer>
-			<!-- FOOTER END -->				</div>
-				<!-- BACK-TO-TOP -->
-		<a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
-
-		<!-- JQUERY JS -->
-		<script src="assets/js/jquery-3.4.1.min.js"></script>
-
-		<!-- BOOTSTRAP JS -->
-		<script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-		<script src="assets/plugins/bootstrap/js/popper.min.js"></script>
-
-		<!-- SPARKLINE JS-->
-		<script src="assets/js/jquery.sparkline.min.js"></script>
-
-		<!-- CHART-CIRCLE JS-->
-		<script src="assets/js/circle-progress.min.js"></script>
-
-		<!-- RATING STARJS -->
-		<script src="assets/plugins/rating/jquery.rating-stars.js"></script>
-
-		<!-- EVA-ICONS JS -->
-		<script src="assets/iconfonts/eva.min.js"></script>
-
-		<!-- INPUT MASK JS-->
-		<script src="assets/plugins/input-mask/jquery.mask.min.js"></script>
-
-		<!-- SIDE-MENU JS-->
-		<script src="assets/plugins/sidemenu/sidemenu.js"></script>
-
-		<!-- PERFECT SCROLL BAR js-->
-		<script src="assets/plugins/p-scroll/perfect-scrollbar.min.js"></script>
-		<script src="assets/plugins/sidemenu/sidemenu-scroll.js"></script>
-
-		<!-- CUSTOM SCROLLBAR JS-->
-		<script src="assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
-
-
-				<!-- INTERNAL CHARTJS CHART JS -->
-		<script src="assets/plugins/chart/Chart.bundle.js"></script>
-		<script src="assets/plugins/chart/utils.js"></script>
-
-		<!-- INTERNAL PIETY CHART JS -->
-		<script src="assets/plugins/peitychart/jquery.peity.min.js"></script>
-		<script src="assets/plugins/peitychart/peitychart.init.js"></script>
-		<!-- INTERNAL INDEX JS -->
-		<script src="assets/js/index3.js"></script>
-		<!-- SIDEBAR JS -->
-		<script src="assets/plugins/sidebar/sidebar.js"></script>
-		<!-- CUSTOM JS -->
-		<script src="assets/js/custom.js"></script>
-		
-		<!-- Swicther JS -->
-		<script src="assets/switcher/js/switcher.js"></script>
-	</body>
-
-
-<!-- Mirrored from laravel.spruko.com/yoha/Sidemenu-Icon-Dark/index3 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Oct 2020 12:12:34 GMT -->
-</html>
+			<?php include 'include/footer.php'?>

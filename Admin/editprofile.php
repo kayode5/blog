@@ -6,72 +6,18 @@ $getid=$_GET['id'];?>
 session_start();
 
 //Check whether the session variable SESS_MEMBER_ID is present or not
-if (!isset($_SESSION['fname']) || !isset($_SESSION['authorid']) ) {
+if (!isset($_SESSION['uname']) || !isset($_SESSION['id']) ) {
     header("location: login.php");
     exit();
 }
 
 
-$name = $_SESSION['fname'];
-$id = $_SESSION['authorid'];
+$name = $_SESSION['uname'];
+$id = $_SESSION['id'];
 ?>
 
-<!doctype html>
-<html lang="en" dir="ltr">
-
-
-<!-- Mirrored from laravel.spruko.com/yoha/Sidemenu-Icon-Light/editprofile by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Oct 2020 12:55:22 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
-<head>
-
-	<!-- META DATA -->
-	<meta charset="UTF-8">
-	<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="Yoha –  HTML5 Bootstrap Admin Template">
-	<meta name="author" content="Spruko Technologies Private Limited">
-	<meta name="keywords" content="admin dashboard html template, admin dashboard template bootstrap 4, analytics dashboard templates, best admin template bootstrap 4, best bootstrap admin template, bootstrap 4 template admin, bootstrap admin template premium, bootstrap admin ui, bootstrap basic admin template, cool admin template, dark admin dashboard, dark admin template, dark dashboard template, dashboard template bootstrap 4, ecommerce dashboard template, html5 admin template, light bootstrap dashboard, sales dashboard template, simple dashboard bootstrap 4, template bootstrap 4 admin">
-
-	<!-- FAVICON -->
-		<link rel="shortcut icon" type="image/x-icon" href="assets/images/brand/favicon.ico" />
-
-		<!-- TITLE -->
-		<title>Yoha – HTML5 Bootstrap Admin Template</title>
-
-		<!-- BOOTSTRAP CSS -->
-		<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-
-		<!-- STYLE CSS -->
-		<link href="assets/css/style.css" rel="stylesheet" />
-		<link href="assets/css/skin-modes.css" rel="stylesheet" />
-		<link href="assets/css/dark-style.css" rel="stylesheet" />
-
-		<!-- SIDE-MENU CSS -->
-		<link href="assets/css/sidemenu.css" rel="stylesheet">
-
-		<!--PERFECT SCROLL CSS-->
-		<link href="assets/plugins/p-scroll/perfect-scrollbar.css" rel="stylesheet" />
-
-		<!-- CUSTOM SCROLL BAR CSS-->
-		<link href="assets/plugins/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet" />
-
-		<!--- FONT-ICONS CSS -->
-		<link href="assets/css/icons.css" rel="stylesheet" />
-
-
-				<!-- INTERNAL SELECT2 CSS -->
-		<link href="assets/plugins/select2/select2.min.css" rel="stylesheet" />
-		<!-- SIDEBAR CSS -->
-		<link href="assets/plugins/sidebar/sidebar.css" rel="stylesheet">
-
-		<!-- COLOR SKIN CSS -->
-		<link id="theme" rel="stylesheet" type="text/css" media="all" href="assets/colors/color1.css" />
-		
-		<!-- Switcher CSS -->
-		<link href="assets/switcher/css/switcher.css" rel="stylesheet">
-		<link href="assets/switcher/demo.css" rel="stylesheet"></head>
-
-	<body class="app sidebar-mini">
+<?php include 'include/header.php';?>
+	<body class="app sidebar-mini dark-mode">
 		
 		<!-- Start Switcher -->
 		
@@ -84,6 +30,7 @@ $id = $_SESSION['authorid'];
 				<!-- /GLOBAL-LOADER -->
 
 				<!-- PAGE -->
+				
 				<?php include 'include/sidebar.php' ?>
 				<!--/APP-SIDEBAR-->						<!-- App-Header -->
 				<div class="app-header header">
@@ -98,7 +45,7 @@ $id = $_SESSION['authorid'];
 									<path d="M0 0h24v24H0V0z" fill="none" />
 									<path d="M21 11.01L3 11v2h18zM3 16h12v2H3zM21 6H3v2.01L21 8z" /></svg>
 							</a><!-- sidebar-toggle-->
-						
+							
 							<div class="d-flex ml-auto header-right-icons header-search-icon">
 								<button class="navbar-toggler navresponsive-toggler d-md-none" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
 									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" class="navbar-toggler-icon">
@@ -112,16 +59,13 @@ $id = $_SESSION['authorid'];
 											<circle cx="12" cy="12" opacity=".3" r="3" />
 											<path d="M7 12c0 2.76 2.24 5 5 5s5-2.24 5-5-2.24-5-5-5-5 2.24-5 5zm8 0c0 1.65-1.35 3-3 3s-3-1.35-3-3 1.35-3 3-3 3 1.35 3 3zM3 19c0 1.1.9 2 2 2h4v-2H5v-4H3v4zM3 5v4h2V5h4V3H5c-1.1 0-2 .9-2 2zm18 0c0-1.1-.9-2-2-2h-4v2h4v4h2V5zm-2 14h-4v2h4c1.1 0 2-.9 2-2v-4h-2v4z" /></svg>
 									</a>
-								</div><!-- FULL-SCREEN -->
-								
-								<?php include 'include/top_header.php' ?>
-								<!-- SIDE-MENU -->
+								</div><!-- FULL-SCREEN --><?php include 'include/top_profile.php'; ?><!-- SIDE-MENU -->
 							</div>
 						</div>
 					</div>
 				</div>
 				<!-- responsive-navbar -->
-				<!-- End responsive-navbar -->
+			<!-- End responsive-navbar -->
 				<!-- App-Header -->						<!--app-content open-->
 						<div class="app-content">
 							<div class="side-app">
@@ -130,11 +74,9 @@ $id = $_SESSION['authorid'];
 				<div>
 					<h1 class="page-title">Edit Profile</h1>
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="#">Pages</a></li>
-						<li class="breadcrumb-item active" aria-current="page">Edit Profile</li>
 					</ol>
 				</div>
-			
+				
 			</div>
 			<!-- PAGE-HEADER END -->
 											<!-- ROW-1 OPEN -->
@@ -144,8 +86,7 @@ $id = $_SESSION['authorid'];
 						<div class="card-body">
 							<div class="text-center">
 								<div class="userprofile">
-								
-									<h3 class="username text-dark mb-2"><?php echo $_SESSION['fname'] . ' ';?></h3>
+									<h3 class="username text-dark mb-2"><?php echo $_SESSION['uname'] . ' ';?></h3>
 									
 									<div class="socials text-center mt-3">
 										<a href="#" class="btn btn-circle btn-primary ">
@@ -166,10 +107,10 @@ $id = $_SESSION['authorid'];
 							      }  
 							      else  
 							      {  
-							           $pass1 = mysqli_real_escape_string($con, htmlspecialchars($_POST["pass1"]));  
-							           $pass3 = mysqli_real_escape_string($con, htmlspecialchars($_POST["pass3"]));
+							           $pass1 = mysqli_real_escape_string($con, $_POST["pass1"]);  
+							           $pass3 = mysqli_real_escape_string($con, $_POST["pass3"]);
 							           $pass3 = password_hash($pass3, PASSWORD_DEFAULT);
-							           $pass2 = mysqli_real_escape_string($con, htmlspecialchars($_POST["pass2"]));  
+							           $pass2 = mysqli_real_escape_string($con, $_POST["pass2"]);  
            							   $pass2 = password_hash($pass2, PASSWORD_DEFAULT);
 							           $query = "SELECT * FROM admin WHERE id = '$getid'";  
 							           $result = mysqli_query($con, $query);  
@@ -180,7 +121,7 @@ $id = $_SESSION['authorid'];
 							                     if(password_verify($pass1, $row["password"]))  
 							                     {  
 							                         
-							                         	$query="UPDATE author SET password='$pass2' WHERE id='$getid'";// query to update the table by id
+							                         	$query="UPDATE admin SET password='$pass2' WHERE id='$getid'";// query to update the table by id
 						if(mysqli_query($con, $query))  
            {  
                 echo '<script>alert("Password Updated Successfully")</script>';  
@@ -202,15 +143,21 @@ $id = $_SESSION['authorid'];
 							      }  
 							 } 
 							?>
-							<form method="post" >
+					<form method="post" >
 					<div class="card">
 						<div class="card-header">
 							<div class="card-title">Edit Password</div>
 						</div>
 						<div class="card-body">
-							
+							<!--<div class="d-flex mb-3">
+								<img alt="User Avatar" class="rounded-circle avatar-lg mr-2" src="assets/images/users/10.jpg">
+								<div class="ml-auto mt-xl-2 mt-lg-0 ml-lg-2">
+									<a href="#" class="btn btn-primary btn-sm mt-1 mb-1"><i class="fe fe-camera mr-1"></i>Edit profile</a>
+									<a href="#" class="btn btn-danger btn-sm mt-1 mb-1"><i class="fe fe-camera-off mr-1"></i>Delete profile</a>
+								</div>
+							</div>-->
 							<div class="form-group">
-								<label class="form-label">Change Password</label>
+								<label class="form-label">Current Password</label>
 								<input type="password" name="pass1" class="form-control" value="password">
 							</div>
 							<div class="form-group">
@@ -232,74 +179,77 @@ $id = $_SESSION['authorid'];
 				</div>
 				<div class="col-lg-8 col-xl-8 col-md-12 col-sm-12">
 					<?php
-                	include '../admin/connection.php'; //including the database config 
+                	include 'connection.php'; //including the database config 
                 	if(isset($_POST['update'])) //if the submit button is cicked
                 	{
-                		$username=mysqli_real_escape_string($con, htmlspecialchars($_POST['username']));//get the name inputted on this field
-                		$email=mysqli_real_escape_string($con, htmlspecialchars($_POST['email']));
-                		$location=mysqli_real_escape_string($con, htmlspecialchars($_POST['location']));
-                		$phone=mysqli_real_escape_string($con, htmlspecialchars($_POST['phone'])); //get the name inputted on this field
-                		$bio=mysqli_real_escape_string($con, htmlspecialchars($_POST['bio']));
+                		$fullname=mysqli_real_escape_string($con,$_POST['fullname']);//get the name inputted on this field
+                		$location=mysqli_real_escape_string($con,$_POST['location']);
+                		$email=mysqli_real_escape_string($con,$_POST['email']);
+                		$phone=mysqli_real_escape_string($con,$_POST['phone']); //get the name inputted on this field
+                		$bio=mysqli_real_escape_string($con,$_POST['bio']);
                 		
-						$query="UPDATE author SET  username='$username', email='$email', location='$location', phone='$phone', bio='$bio' WHERE id='$getid'";// query to update the table by id
+						$query="UPDATE admin SET  fullname='$fullname', email='$email', location='$location', phone='$phone', bio='$bio' WHERE id='$getid'";// query to update the table by id
 						if(mysqli_query($con, $query))  
            {  
                 echo '<script>alert("Account Updated Successfully")</script>';  
            }  
 						}
                 	?>
-					<form method="post">
+
+				<form method="post">
+
 					<div class="card">
 						<div class="card-header">
 							<h3 class="card-title">Edit Profile</h3>
 						</div>
-						<?php
-                	$query2=mysqli_query($con,"SELECT * FROM `author` WHERE id='$getid'"); // display the field that was clicked by id
+
+						                	<?php
+                	$query2=mysqli_query($con,"SELECT * FROM `admin` WHERE id='$getid'"); // display the field that was clicked by id
                 	$rows=mysqli_fetch_array($query2);
                 	?>
 						<div class="card-body">
 							<div class="row">
 								<div class="col-lg-6 col-md-12">
 									<div class="form-group">
-										<label for="exampleInputname">User Name</label>
-										<input type="text" name="username" class="form-control" id="exampleInputname" value="<?php echo $rows['username']; ?>">
+										<label for="exampleInputname">Full Name</label>
+										<input type="text" class="form-control" id="exampleInputname" name="fullname" value="<?php echo $rows['fullname']; ?>">
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-12">
-							<div class="form-group">
+									<div class="form-group">
 								<label for="exampleInputEmail1">Email address</label>
-								<input type="email" name="email" class="form-control" id="exampleInputEmail1" value="<?php echo $rows['email']; ?>">
+								<input type="email" class="form-control" id="exampleInputEmail1" name="email" value="<?php echo $rows['email']; ?>">
 							</div>
-							</div>
+								</div>
 								
 							</div>
 							<div class="row">
-							<div class="col-lg-6 col-md-12">
-							<div class="form-group">
+								<div class="col-lg-6 col-md-12">
+									<div class="form-group">
 								<label for="exampleInputEmail1">Location</label>
-								<input type="text" name="location" class="form-control" id="exampleInputEmail1" value="<?php echo $rows['location']; ?>">
+								<input type="text" class="form-control" id="exampleInputEmail1" name="location" value="<?php echo $rows['location']; ?>">
 							</div>
+								</div>
+								<div class="col-lg-6 col-md-12">
+									<div class="form-group">
+								<label for="exampleInputnumber">Conatct Number</label>
+								<input type="number" class="form-control" id="exampleInputnumber" name="phone" value="<?php echo $rows['phone']; ?>">
 							</div>
-							<div class="col-lg-6 col-md-12">
-							<div class="form-group">
-								<label for="exampleInputnumber">Contact Number</label>
-								<input type="number" name="phone" class="form-control" id="exampleInputnumber" value="<?php echo $rows['phone']; ?>">
-							</div>
-							</div>
-							</div>
+								</div>
+								</div>
 							<div class="form-group">
 								<label class="form-label">About Me</label>
-								<textarea class="form-control" name="bio" rows="6"><?php echo $rows['bio']; ?></textarea>
+								<textarea class="form-control" rows="6" name="bio"><?php echo $rows['bio']; ?></textarea>
 							</div>
-							
 							
 						</div>
 						<div class="card-footer">
 							<input type="submit" name="update" value="Update" class="btn btn-success mt-1"/>
-							<a href="profile.php" class="btn btn-danger mt-1">Cancel</a>
+							<a href="../admin/profile.php" class="btn btn-danger mt-1">Cancel</a>
 						</div>
 					</div>
-					</form>
+
+				</form>
 				</div>
 			</div>
 			<!-- ROW-1 CLOSED -->
@@ -430,64 +380,4 @@ $id = $_SESSION['authorid'];
 				</div>
 			</div>
 			<!-- SIDE-BAR CLOSED -->					<!-- FOOTER -->
-			<footer class="footer">
-				<div class="container">
-					<div class="row align-items-center flex-row-reverse">
-						<div class="col-md-12 col-sm-12 text-center">
-							Copyright © 2020 <a href="#">Yoha</a>. Designed by <a href="#"> Spruko Technologies Pvt.Ltd </a> All rights reserved.
-						</div>
-					</div>
-				</div>
-			</footer>
-			<!-- FOOTER END -->				</div>
-				<!-- BACK-TO-TOP -->
-		<a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
-
-		<!-- JQUERY JS -->
-		<script src="assets/js/jquery-3.4.1.min.js"></script>
-
-		<!-- BOOTSTRAP JS -->
-		<script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-		<script src="assets/plugins/bootstrap/js/popper.min.js"></script>
-
-		<!-- SPARKLINE JS-->
-		<script src="assets/js/jquery.sparkline.min.js"></script>
-
-		<!-- CHART-CIRCLE JS-->
-		<script src="assets/js/circle-progress.min.js"></script>
-
-		<!-- RATING STARJS -->
-		<script src="assets/plugins/rating/jquery.rating-stars.js"></script>
-
-		<!-- EVA-ICONS JS -->
-		<script src="assets/iconfonts/eva.min.js"></script>
-
-		<!-- INPUT MASK JS-->
-		<script src="assets/plugins/input-mask/jquery.mask.min.js"></script>
-
-		<!-- SIDE-MENU JS-->
-		<script src="assets/plugins/sidemenu/sidemenu.js"></script>
-
-		<!-- PERFECT SCROLL BAR js-->
-		<script src="assets/plugins/p-scroll/perfect-scrollbar.min.js"></script>
-		<script src="assets/plugins/sidemenu/sidemenu-scroll.js"></script>
-
-		<!-- CUSTOM SCROLLBAR JS-->
-		<script src="assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
-
-
-				<!-- INTERNAL SELECT2 JS -->
-		<script src="assets/plugins/select2/select2.full.min.js"></script>
-		<script src="assets/js/select2.js"></script>
-		<!-- SIDEBAR JS -->
-		<script src="assets/plugins/sidebar/sidebar.js"></script>
-		<!-- CUSTOM JS -->
-		<script src="assets/js/custom.js"></script>
-		
-		<!-- Swicther JS -->
-		<script src="assets/switcher/js/switcher.js"></script>
-	</body>
-
-
-<!-- Mirrored from laravel.spruko.com/yoha/Sidemenu-Icon-Light/editprofile by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Oct 2020 12:55:22 GMT -->
-</html>
+			<?php include 'include/footer.php'?>

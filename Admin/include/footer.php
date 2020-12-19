@@ -1,8 +1,8 @@
-	<footer class="footer">
+<footer class="footer">
 				<div class="container">
 					<div class="row align-items-center flex-row-reverse">
 						<div class="col-md-12 col-sm-12 text-center">
-							Copyright © 2020 <a href="#">Yoha</a>. Designed by <a href="#"> Spruko Technologies Pvt.Ltd </a> All rights reserved.
+							Copyright © 2020 <a href="#"></a>.All rights reserved.
 						</div>
 					</div>
 				</div>
@@ -53,6 +53,9 @@
 		<script src="assets/plugins/peitychart/peitychart.init.js"></script>
 		<!-- INTERNAL APEXCHART JS -->
 		<script src="assets/js/apexcharts.js"></script>
+		<!-- INTERNAL SWEET-ALERT JS -->
+        <script src="assets/plugins/sweet-alert/sweetalert.min.js"></script>
+        <script src="assets/js/sweet-alert.js"></script>
 
 		<!--INTERNAL  INDEX JS -->
 		<script src="assets/js/index1.js"></script>
@@ -64,4 +67,7 @@
 		<!-- Swicther JS -->
 		<script src="assets/switcher/js/switcher.js"></script>
 	</body>
+
+
+<!-- Mirrored from laravel.spruko.com/yoha/Sidemenu-Icon-Dark/index by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Oct 2020 12:09:16 GMT -->
 </html>

@@ -14,15 +14,16 @@ $name = $_SESSION['uname'];
 
 include 'connection.php';  //including the database config 
 $get_id=$_GET['id']; //get that blog by the id since its unique
-$query=mysqli_query($con,"delete from post where id='$get_id'");//query to delete that blog by id since its unique
+$query=mysqli_query($con,"delete from category where id='$get_id'");//query to delete that blog by id since its unique
 if($query){ //if query is true reload the view page and echo deleted successfully
+ 
+    echo '<script> alert("Category Deleted Successfully")</script>';
+    echo '<script> window.location.href = "view_category.php"</script>';
     
-    echo '<script> alert("Blog Deleted Successfully")</script>';
-    echo '<script> window.location.href = "view_blog.php"</script>';
 }
 
 else{
-    echo "Error Deleting Blog: " . mysql_error();
+    echo "Error Deleting Category: " . mysql_error();
 
 }
 

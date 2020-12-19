@@ -1,102 +1,100 @@
 <?php  
-include '../admin/connection.php';  
+include 'connection.php';  
  session_start();  
- if(isset($_SESSION["fname"]))  
+ if(isset($_SESSION["uname"]))  
  {  
       header("location:index.php");  
  }  
  if(isset($_POST["register"]))  
  {  
-      if(empty($_POST["username"]) || empty($_POST["password"]))  
+      if(empty($_POST["fullname"]) || empty($_POST["password"]))  
       {  
            echo '<script>alert("Both Fields are required")</script>';  
       }  
       else  
       {  
           
-           $username = mysqli_real_escape_string($con, $_POST["username"]);
+           $fullname = mysqli_real_escape_string($con, $_POST["fullname"]);
            $email = mysqli_real_escape_string($con, $_POST["email"]);  
            $password = mysqli_real_escape_string($con, $_POST["password"]);  
-           $password = password_hash($password, PASSWORD_DEFAULT); 
-           $date=date('Y-m-d H:i'); 
-           $status='pending';
-           $query = "INSERT INTO author(email, username, password, status, date) VALUES('$email', '$username', '$password', '$status', '$date')";  
+           $password = password_hash($password, PASSWORD_DEFAULT);  
+           $query = "INSERT INTO admin(email, fullname, password) VALUES('$email', '$fullname', '$password')";  
            if(mysqli_query($con, $query))  
            {  
-                echo '<script>alert("Registration Done")</script>';
-                echo '<script>alert("Please Wait for Admin Approval")</script>';  
+                echo '<script>alert("Registration Done")</script>';  
            }  
       }  
  } 
  ?>  
-
-
 <!doctype html>
 <html lang="en" dir="ltr">
 
-
-<!-- Mirrored from laravel.spruko.com/yoha/Sidemenu-Icon-Light/login by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Oct 2020 12:55:36 GMT -->
+	
+<!-- Mirrored from laravel.spruko.com/yoha/Sidemenu-Icon-Dark/register by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Oct 2020 12:14:31 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
-  <!-- META DATA -->
-  <meta charset="UTF-8">
-  <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Yoha –  HTML5 Bootstrap Admin Template">
-  <meta name="author" content="Spruko Technologies Private Limited">
-  <meta name="keywords" content="admin dashboard html template, admin dashboard template bootstrap 4, analytics dashboard templates, best admin template bootstrap 4, best bootstrap admin template, bootstrap 4 template admin, bootstrap admin template premium, bootstrap admin ui, bootstrap basic admin template, cool admin template, dark admin dashboard, dark admin template, dark dashboard template, dashboard template bootstrap 4, ecommerce dashboard template, html5 admin template, light bootstrap dashboard, sales dashboard template, simple dashboard bootstrap 4, template bootstrap 4 admin">
-  <!-- FAVICON -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/brand/favicon.ico" />
+		<!-- META DATA -->
+		<meta charset="UTF-8">
+		<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Yoha –  HTML5 Bootstrap Admin Template">
+		<meta name="author" content="Spruko Technologies Private Limited">
+		<meta name="keywords" content="admin dashboard html template, admin dashboard template bootstrap 4, analytics dashboard templates, best admin template bootstrap 4, best bootstrap admin template, bootstrap 4 template admin, bootstrap admin template premium, bootstrap admin ui, bootstrap basic admin template, cool admin template, dark admin dashboard, dark admin template, dark dashboard template, dashboard template bootstrap 4, ecommerce dashboard template, html5 admin template, light bootstrap dashboard, sales dashboard template, simple dashboard bootstrap 4, template bootstrap 4 admin">
+		<!-- FAVICON -->
+		<link rel="shortcut icon" type="image/x-icon" href="assets/images/brand/favicon.ico" />
 
-    <!-- TITLE -->
-    <title>Yoha – HTML5 Bootstrap Admin Template</title>
+		<!-- TITLE -->
+		<title>Yoha – HTML5 Bootstrap Admin Template</title>
 
-    <!-- BOOTSTRAP CSS -->
-    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+		<!-- BOOTSTRAP CSS -->
+		<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
-    <!-- STYLE CSS -->
-    <link href="assets/css/style.css" rel="stylesheet" />
-    <link href="assets/css/skin-modes.css" rel="stylesheet" />
-    <link href="assets/css/dark-style.css" rel="stylesheet" />
+		<!-- STYLE CSS -->
+		<link href="assets/css/style.css" rel="stylesheet" />
+		<link href="assets/css/skin-modes.css" rel="stylesheet" />
+		<link href="assets/css/dark-style.css" rel="stylesheet" />
 
-    <!-- CUSTOM SCROLL BAR CSS-->
-    <link href="assets/plugins/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet" />
+		<!-- CUSTOM SCROLL BAR CSS-->
+		<link href="assets/plugins/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet" />
 
-    <!--- FONT-ICONS CSS -->
-    <link href="assets/css/icons.css" rel="stylesheet" />
+		<!--- FONT-ICONS CSS -->
+		<link href="assets/css/icons.css" rel="stylesheet" />
 
-        <!-- INTERNAL SINGLE-PAGE CSS -->
-    <link href="assets/plugins/single-page/css/main.css" rel="stylesheet" type="text/css">
+		        <!-- INTERNAL SINGLE-PAGE CSS -->
+        <link href="assets/plugins/single-page/css/main.css" rel="stylesheet" type="text/css">
 
-    <!-- COLOR SKIN CSS -->
-    <link id="theme" rel="stylesheet" type="text/css" media="all" href="assets/colors/color1.css" /></head>
-		<body class="app sidebar-mini">
+		<!-- COLOR SKIN CSS -->
+		<link id="theme" rel="stylesheet" type="text/css" media="all" href="assets/colors/color1.css" />	</head>
 
-			<!-- BACKGROUND-IMAGE -->
-			<div class="login-img">
+	<body class="app sidebar-mini dark-mode">
 
-				<!-- GLOABAL LOADER -->
-				<div id="global-loader">
-					<img src="assets/images/loader.svg" class="loader-img" alt="Loader">
-				</div>
-				<!-- End GLOABAL LOADER -->
+		
 
-				<!-- PAGE -->
-				<div class="page">
-					<div class="">
-						<div class="col col-login mx-auto">
-							<div class="text-center">
-								<img src="assets/images/brand/logo-3.png" class="header-brand-img" alt="">
-							</div>
+		<!-- BACKGROUND-IMAGE -->
+		<div class="login-img">
+
+			<!-- GLOABAL LOADER -->
+			<div id="global-loader">
+				<img src="assets/images/loader.svg" class="loader-img" alt="Loader">
+			</div>
+			<!-- End GLOABAL LOADER -->
+
+			<!-- PAGE -->
+			<div class="page">
+				<div class="">
+					<div class="col col-login mx-auto">
+						<div class="text-center">
+							<img src="assets/images/brand/logo.png" class="header-brand-img" alt="">
 						</div>
-						            <div class="container-login100">
+					</div>
+					            <div class="container-login100">
                 <div class="wrap-login100 p-6">
-                    <form method="POST" class="login100-form validate-form">
+                    <form class="login100-form validate-form" method="post">
                         <span class="login100-form-title">
                             Registration
                         </span>
                         <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                            <input class="input100" type="text" name="username" placeholder="User name">
+                            <input class="input100" type="text" name="fullname" placeholder="Fullname">
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
@@ -117,7 +115,7 @@ include '../admin/connection.php';
                             </span>
                         </div>
                         <div class="wrap-input100 validate-input" data-validate="Password is required">
-                            <input class="input100" type="password" minlength="8" name="password" placeholder="Password">
+                            <input class="input100" type="password" name="password" placeholder="Password">
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
@@ -130,25 +128,31 @@ include '../admin/connection.php';
                                 </svg>
                             </span>
                         </div>
-                      
+                        <!--<label class="custom-control custom-checkbox mt-4">
+                            <input type="checkbox" class="custom-control-input">
+                            <span class="custom-control-label">Agree the <a href="terms.html">terms and policy</a></span>
+                        </label>-->
                         <div class="container-login100-form-btn">
-                            <input type="submit" name="register" class="login100-form-btn btn-primary"/>
+                            <input type="submit" value='Register' name="register" class="login100-form-btn btn-primary"/>
+                                
                             
                         </div>
                         <div class="text-center pt-3">
                             <p class="text-dark mb-0">Already have account?<a href="login.php" class="text-primary ml-1">Sign In</a></p>
                         </div>
-                        
+                        <div class=" flex-c-m text-center mt-3">
+                            
+                        </div>
                     </form>
                 </div>
             </div>
             <!-- CONTAINER CLOSED -->
-					</div>
 				</div>
-				<!-- END PAGE -->
 			</div>
-			<!-- BACKGROUND-IMAGE CLOSED -->
-			<!-- JQUERY JS -->
+		<!-- END PAGE -->
+		</div>
+		<!-- BACKGROUND-IMAGE CLOSED -->
+		<!-- JQUERY JS -->
 		<script src="assets/js/jquery-3.4.1.min.js"></script>
 
 		<!-- BOOTSTRAP JS -->
@@ -170,8 +174,8 @@ include '../admin/connection.php';
 		<!-- CUSTOM SCROLL BAR JS-->
 		<script src="assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
 				<!-- CUSTOM JS-->
-		<script src="assets/js/custom.js"></script>		</body>
+		<script src="assets/js/custom.js"></script>	</body>
 
 
-<!-- Mirrored from laravel.spruko.com/yoha/Sidemenu-Icon-Light/register by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Oct 2020 12:55:36 GMT -->
+<!-- Mirrored from laravel.spruko.com/yoha/Sidemenu-Icon-Dark/register by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Oct 2020 12:14:31 GMT -->
 </html>

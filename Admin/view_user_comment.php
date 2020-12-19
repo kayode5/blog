@@ -96,7 +96,7 @@ $id = $_SESSION['id'];
 									<path d="M0 0h24v24H0V0z" fill="none" />
 									<path d="M21 11.01L3 11v2h18zM3 16h12v2H3zM21 6H3v2.01L21 8z" /></svg>
 							</a><!-- sidebar-toggle-->
-						
+							
 							<div class="d-flex ml-auto header-right-icons header-search-icon">
 								<button class="navbar-toggler navresponsive-toggler d-md-none" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
 									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" class="navbar-toggler-icon">
@@ -130,7 +130,7 @@ $id = $_SESSION['id'];
 					<h1 class="page-title">Blog Post</h1>
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="#">Home</a></li>
-						<li class="breadcrumb-item active" aria-current="page">View Blog Posts</li>
+						<li class="breadcrumb-item active" aria-current="page">View Users Comments</li>
 					</ol>
 				</div>
 				
@@ -259,10 +259,10 @@ $count1 = mysqli_num_rows($result1);
 									<thead>
 										<tr>
 											<th>Number</th>
-											<th>Category</th>
-											<th>Blog Title</th>
-											
+											<th>Email</th>
+											<th>FullName</th>
 											<th>Date</th>
+											<th>Comment</th>
 											<th>Action</th>
 										</tr>
 									</thead>
@@ -270,20 +270,22 @@ $count1 = mysqli_num_rows($result1);
 										<?php
 									include 'connection.php';
 								
-                        			$query=mysqli_query($con,"SELECT * FROM post WHERE postid = '$id'");
+                        			$query=mysqli_query($con,"SELECT * FROM comment");
                         			while($row=mysqli_fetch_array($query))
                         				{ $id = $row['id'];
                         				$date = $row['date'];
+                        				$comment = $row['comment'];
                         				$newDate = date("d M Y", strtotime($date));
-    									$new_date = date('dS F, Y', strtotime($newDate)); ?>
+    									$new_date = date('dS F, Y', strtotime($newDate));  ?>
 										<tr>
 											<td><?php echo $row['id']; ?></td>
-											<td><?php echo $row['category']; ?></td>
-											<td><?php echo $row['title']; ?></td>
+											<td><?php echo $row['email']; ?></td>
+											<td><?php echo $row['fullname']; ?></td>
 											
 											<td><?php echo $new_date ?></td>
+											<td><?php if(strlen($comment) > 25){ echo substr($comment, 0,24).' ..';}else{ echo $comment; } ?></td>
 											<td>
-												<a href="edit_blog.php?id=<?php echo $id?>" class="btn btn-primary btn-sm text-white mb-1" data-original-title="View" data-toggle="tooltip"><i class="fa fa-eye"></i></a> <a href="delete_blog.php?id=<?php echo $id?>" class="btn btn-danger btn-sm text-white mb-1" data-original-title="Delete" data-toggle="tooltip"><i class="fa fa-trash-o"></i></a><br>
+												<a href="delete_comment.php?id=<?php echo $id?>" class="btn btn-danger btn-sm text-white mb-1" data-original-title="Delete" data-toggle="tooltip"><i class="fa fa-trash-o"></i></a><br>
 											</td>
 										</tr>
 											<?php } ?>
@@ -424,7 +426,7 @@ $count1 = mysqli_num_rows($result1);
 				</div>
 			</div>
 			<!-- SIDE-BAR CLOSED -->					<!-- FOOTER -->
-			<footer class="footer">
+		<footer class="footer">
 				<div class="container">
 					<div class="row align-items-center flex-row-reverse">
 						<div class="col-md-12 col-sm-12 text-center">

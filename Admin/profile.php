@@ -4,70 +4,18 @@
 session_start();
 
 //Check whether the session variable SESS_MEMBER_ID is present or not
-if (!isset($_SESSION['fname']) || !isset($_SESSION['authorid']) ) {
+if (!isset($_SESSION['uname']) || !isset($_SESSION['id']) ) {
     header("location: login.php");
     exit();
 }
 
 
-$name = $_SESSION['fname'];
-$id = $_SESSION['authorid'];
+$name = $_SESSION['uname'];
+$id = $_SESSION['id'];
 ?>
 
-<!doctype html>
-<html lang="en" dir="ltr">
-
-
-<!-- Mirrored from laravel.spruko.com/yoha/Sidemenu-Icon-Light/profile by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Oct 2020 12:55:22 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
-<head>
-
-	<!-- META DATA -->
-	<meta charset="UTF-8">
-	<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="Yoha –  HTML5 Bootstrap Admin Template">
-	<meta name="author" content="Spruko Technologies Private Limited">
-	<meta name="keywords" content="admin dashboard html template, admin dashboard template bootstrap 4, analytics dashboard templates, best admin template bootstrap 4, best bootstrap admin template, bootstrap 4 template admin, bootstrap admin template premium, bootstrap admin ui, bootstrap basic admin template, cool admin template, dark admin dashboard, dark admin template, dark dashboard template, dashboard template bootstrap 4, ecommerce dashboard template, html5 admin template, light bootstrap dashboard, sales dashboard template, simple dashboard bootstrap 4, template bootstrap 4 admin">
-
-	<!-- FAVICON -->
-		<link rel="shortcut icon" type="image/x-icon" href="assets/images/brand/favicon.ico" />
-
-		<!-- TITLE -->
-		<title>Yoha – HTML5 Bootstrap Admin Template</title>
-
-		<!-- BOOTSTRAP CSS -->
-		<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-
-		<!-- STYLE CSS -->
-		<link href="assets/css/style.css" rel="stylesheet" />
-		<link href="assets/css/skin-modes.css" rel="stylesheet" />
-		<link href="assets/css/dark-style.css" rel="stylesheet" />
-
-		<!-- SIDE-MENU CSS -->
-		<link href="assets/css/sidemenu.css" rel="stylesheet">
-
-		<!--PERFECT SCROLL CSS-->
-		<link href="assets/plugins/p-scroll/perfect-scrollbar.css" rel="stylesheet" />
-
-		<!-- CUSTOM SCROLL BAR CSS-->
-		<link href="assets/plugins/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet" />
-
-		<!--- FONT-ICONS CSS -->
-		<link href="assets/css/icons.css" rel="stylesheet" />
-
-
-				<!-- SIDEBAR CSS -->
-		<link href="assets/plugins/sidebar/sidebar.css" rel="stylesheet">
-
-		<!-- COLOR SKIN CSS -->
-		<link id="theme" rel="stylesheet" type="text/css" media="all" href="assets/colors/color1.css" />
-		
-		<!-- Switcher CSS -->
-		<link href="assets/switcher/css/switcher.css" rel="stylesheet">
-		<link href="assets/switcher/demo.css" rel="stylesheet"></head>
-
-	<body class="app sidebar-mini">
+<?php include 'include/header.php';?>
+	<body class="app sidebar-mini dark-mode">
 		
 		<!-- Start Switcher -->
 		
@@ -80,10 +28,6 @@ $id = $_SESSION['authorid'];
 				<!-- /GLOBAL-LOADER -->
 
 				<!-- PAGE -->
-				<div class="page">
-					<div class="page-main">
-						<!--APP-SIDEBAR-->
-				<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 				<?php include 'include/sidebar.php' ?>
 				<!--/APP-SIDEBAR-->						<!-- App-Header -->
 				<div class="app-header header">
@@ -113,8 +57,8 @@ $id = $_SESSION['authorid'];
 											<path d="M7 12c0 2.76 2.24 5 5 5s5-2.24 5-5-2.24-5-5-5-5 2.24-5 5zm8 0c0 1.65-1.35 3-3 3s-3-1.35-3-3 1.35-3 3-3 3 1.35 3 3zM3 19c0 1.1.9 2 2 2h4v-2H5v-4H3v4zM3 5v4h2V5h4V3H5c-1.1 0-2 .9-2 2zm18 0c0-1.1-.9-2-2-2h-4v2h4v4h2V5zm-2 14h-4v2h4c1.1 0 2-.9 2-2v-4h-2v4z" /></svg>
 									</a>
 								</div><!-- FULL-SCREEN -->
+								<?php include 'include/top_profile.php'; ?>
 								
-								<?php include 'include/top_header.php'; ?>
 								<!-- SIDE-MENU -->
 							</div>
 						</div>
@@ -129,13 +73,9 @@ $id = $_SESSION['authorid'];
             <div class="page-header">
                 <div>
                     <h1 class="page-title">Profile</h1>
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Profile</li>
-                    </ol>
+                    
                 </div>
-              
-            </div>
+                           </div>
             <!-- PAGE-HEADER END -->
 								            <!-- ROW-1 OPEN -->
             <div class="row">
@@ -144,13 +84,10 @@ $id = $_SESSION['authorid'];
                         <div class="card-body">
                             <div class="wideget-user text-center">
                                 <div class="wideget-user-desc">
-                                    <div class="wideget-user-img">
-                                        <img class="" src="assets/images/users/10.jpg" alt="img">
-                                    </div>
+                                   
                                     <div class="user-wrap">
-                                        <h4 class="mb-1"><?php echo $_SESSION['fname'] . ' ';?></h4>
-                                        
-                                       
+                                        <h4 class="mb-1"><?php echo $_SESSION['uname'] . ' ';?></h4>
+                                        <h6 class="text-muted mb-4"></h6>
                                         <div class="wideget-user-icons mb-4">
                                             <a href="#" class="bg-facebook text-white mt-0"><i class="fa fa-facebook"></i></a>
                                             <a href="#" class="bg-info text-white"><i class="fa fa-twitter"></i></a>
@@ -208,7 +145,9 @@ $id = $_SESSION['authorid'];
                                 <div class="tabs-menu1">
                                     <ul class="nav">
                                         <li class=""><a href="#tab-51" class="active show" data-toggle="tab">Profile</a></li>
-                                       
+                                        <!--<li><a href="#tab-61" data-toggle="tab" class="">Friends</a></li>
+                                        <li><a href="#tab-71" data-toggle="tab" class="">Gallery</a></li>
+                                        <li><a href="#tab-81" data-toggle="tab" class="">Followers</a></li>-->
                                     </ul>
                                 </div>
                             </div>
@@ -221,7 +160,7 @@ $id = $_SESSION['authorid'];
                                     <div id="profile-log-switch">
                                         <div class="media-heading">
                                         	<?php
-                        			include'../admin/connection.php'; //include database file
+                        			include'connection.php'; //include database file
                         			$query=mysqli_query($con,"SELECT * FROM admin "); //select all from the blog table
                         			while($row=mysqli_fetch_array($query)) //fecth that query rows
                         				{ $id = $row['id']; ?>
@@ -231,41 +170,84 @@ $id = $_SESSION['authorid'];
                                             <table class="table row table-borderless">
                                                 <tbody class="col-lg-12 col-xl-6 p-0">
                                                     <tr>
-                                                        <td><strong>Full Name :</strong><?php echo $row['fullname']; ?></td>
+                                                        <td><strong>Full Name :</strong> <?php echo $row['fullname']; ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><strong>Location :</strong><?php echo $row['location']; ?></td>
+                                                        <td><strong>Location :</strong> <?php echo $row['location']; ?></td>
                                                     </tr>
                                                    
                                                 </tbody>
                                                 <tbody class="col-lg-12 col-xl-6 p-0">
+                                                  
                                                     <tr>
-                                                        <td><strong>Email :</strong> <?php echo $row['email']; ?></td>>
+                                                        <td><strong>Email :</strong> <?php echo $row['email']; ?></td>
                                                     </tr>
                                                     <tr>
-                                                          <td><strong>Phone :</strong> <?php echo $row['phone']; ?></td>
+                                                        <td><strong>Phone :</strong> <?php echo $row['phone']; ?></td>
                                                     </tr>
-                                                    
                                                 </tbody>
                                             </table>
                                         </div>
                                         <div class="row profie-img">
                                             <div class="col-md-12">
                                                 <div class="media-heading">
-                                                    <h5><strong>Biography</strong></h5>
+                                                    <h5><strong>Biography:</strong></h5>
                                                 </div>
                                                 <p>
-                                                     <?php echo $row['bio']; ?></p>
+                                                   <?php echo $row['bio']; ?></p>
                                             </div>
                                         </div>
-                                        <?php } ?>
+                                      <?php } ?>
                                     </div>
                                 </div>
                             </div>
-                          
                             
+                            <!--<div class="card">
+                                <div class="card-header">
+                                    <div class="d-flex">
+                                        <div class="media-user mr-4">
+                                            <div class="main-img-user avatar-md"><img alt="" class="rounded-circle" src="assets/images/users/15.jpg"></div>
+                                        </div>
+                                        <div class="">
+                                            <h6 class="mb-0 mt-2">Peter Hill</h6><span class="text-muted">5 mins ago</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-options">
+                                        <div class="dropdown">
+                                            <a class="new" data-toggle="dropdown" href="JavaScript:void(0);"><i class="fe fe-more-vertical text-dark"></i></a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item" href="#">Edit Post</a>
+                                                <a class="dropdown-item" href="#">Delete Post</a>
+                                                <a class="dropdown-item" href="#">Personal Settings</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="mg-t-10">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                                    <div><img alt="img" class="w-100" src="assets/images/media/13.jpg"></div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="d-flex">
+                                        <div class="avatar-group">
+                                            <a class="avatar avatar-sm" data-toggle="tooltip" href="#" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="assets/images/users/19.jpg"></a>
+                                            <a class="avatar avatar-sm" data-toggle="tooltip" href="#" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="assets/images/users/20.jpg"></a>
+                                            <a class="avatar avatar-sm" data-toggle="tooltip" href="#" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="assets/images/users/1.jpg"></a>
+                                            <a class="avatar avatar-sm" data-toggle="tooltip" href="#" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="assets/images/users/2.jpg"></a>
+                                        </div>
+                                        <div class="ml-auto">
+                                            <div class="dropdown wideget-user-contact">
+                                                <a class="user-contact-icon bg-light" href="JavaScript:void(0);" data-toggle="tooltip" data-placement="top" title="Likes"><i class="fe fe-heart text-dark"></i></a>
+                                                <a class="user-contact-icon bg-light" href="JavaScript:void(0);" data-toggle="tooltip" data-placement="top" title="Comments"><i class="fe fe-message-square text-dark"></i></a>
+                                                <a class="user-contact-icon bg-light" href="JavaScript:void(0);" data-toggle="tooltip" data-placement="top" title="Shares"><i class="fe fe-share-2 text-dark"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>-->
                         </div>
-                        
+                     
+                      
                     </div>
                 </div><!-- COL-END -->
             </div>
@@ -275,183 +257,6 @@ $id = $_SESSION['authorid'];
 					</div>
 					<!-- CONTAINER END -->
 					<!-- SIDE-BAR -->
-			<div class="sidebar sidebar-right sidebar-animate">
-				<div class="">
-					<a href="#" class="sidebar-icon text-right float-right" data-toggle="sidebar-right" data-target=".sidebar-right"><i class="fe fe-x"></i></a>
-				</div>
-				<div class="p-3 border-bottom">
-					<h5 class="border-bottom-0 mb-0">General Settings</h5>
-				</div>
-				<div class="p-4">
-					<div class="switch-settings">
-						<div class="d-flex mb-2">
-							<span class="mr-auto fs-15">Notifications</span>
-							<label class="custom-switch">
-								<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
-								<span class="custom-switch-indicator"></span>
-							</label>
-						</div>
-						<div class="d-flex mb-2">
-							<span class="mr-auto fs-15">Show your emails</span>
-							<label class="custom-switch">
-								<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
-								<span class="custom-switch-indicator"></span>
-							</label>
-						</div>
-						<div class="d-flex mb-2">
-							<span class="mr-auto fs-15">Show Task statistics</span>
-							<label class="custom-switch">
-								<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
-								<span class="custom-switch-indicator"></span>
-							</label>
-						</div>
-						<div class="d-flex mb-2">
-							<span class="mr-auto fs-15">Show recent activity</span>
-							<label class="custom-switch">
-								<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
-								<span class="custom-switch-indicator"></span>
-							</label>
-						</div>
-						<div class="d-flex mb-2">
-							<span class="mr-auto fs-15">System Logs</span>
-							<label class="custom-switch">
-								<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
-								<span class="custom-switch-indicator"></span>
-							</label>
-						</div>
-						<div class="d-flex mb-2">
-							<span class="mr-auto fs-15">Error Reporting</span>
-							<label class="custom-switch">
-								<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
-								<span class="custom-switch-indicator"></span>
-							</label>
-						</div>
-						<div class="d-flex mb-2">
-							<span class="mr-auto fs-15">Show your status to all</span>
-							<label class="custom-switch">
-								<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
-								<span class="custom-switch-indicator"></span>
-							</label>
-						</div>
-						<div class="d-flex mb-2">
-							<span class="mr-auto fs-15">Keep up to date</span>
-							<label class="custom-switch">
-								<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
-								<span class="custom-switch-indicator"></span>
-							</label>
-						</div>
-					</div>
-				</div>
-				<div class="p-3 border-bottom">
-					<h5 class="border-bottom-0 mb-0">Overview</h5>
-				</div>
-				<div class="p-4">
-					<div class="progress-wrapper">
-						<div class="mb-3">
-							<p class="mb-2">Achieves<span class="float-right text-muted font-weight-normal">80%</span></p>
-							<div class="progress h-1">
-								<div class="progress-bar bg-primary w-80 " role="progressbar"></div>
-							</div>
-						</div>
-					</div>
-					<div class="progress-wrapper pt-2">
-						<div class="mb-3">
-							<p class="mb-2">Projects<span class="float-right text-muted font-weight-normal">60%</span></p>
-							<div class="progress h-1">
-								<div class="progress-bar bg-secondary w-60 " role="progressbar"></div>
-							</div>
-						</div>
-					</div>
-					<div class="progress-wrapper pt-2">
-						<div class="mb-3">
-							<p class="mb-2">Earnings<span class="float-right text-muted font-weight-normal">50%</span></p>
-							<div class="progress h-1">
-								<div class="progress-bar bg-success w-50" role="progressbar"></div>
-							</div>
-						</div>
-					</div>
-					<div class="progress-wrapper pt-2">
-						<div class="mb-3">
-							<p class="mb-2">Balance<span class="float-right text-muted font-weight-normal">45%</span></p>
-							<div class="progress h-1">
-								<div class="progress-bar bg-warning w-45 " role="progressbar"></div>
-							</div>
-						</div>
-					</div>
-					<div class="progress-wrapper pt-2">
-						<div class="mb-3">
-							<p class="mb-2">Toatal Profits<span class="float-right text-muted font-weight-normal">75%</span></p>
-							<div class="progress h-1">
-								<div class="progress-bar bg-danger w-75" role="progressbar"></div>
-							</div>
-						</div>
-					</div>
-					<div class="progress-wrapper pt-2">
-						<div class="mb-3">
-							<p class="mb-2">Total Likes<span class="float-right text-muted font-weight-normal">70%</span></p>
-							<div class="progress h-1">
-								<div class="progress-bar bg-teal w-70" role="progressbar"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			
 			<!-- SIDE-BAR CLOSED -->					<!-- FOOTER -->
-			<footer class="footer">
-				<div class="container">
-					<div class="row align-items-center flex-row-reverse">
-						<div class="col-md-12 col-sm-12 text-center">
-							Copyright © 2020 <a href="#">Yoha</a>. Designed by <a href="#"> Spruko Technologies Pvt.Ltd </a> All rights reserved.
-						</div>
-					</div>
-				</div>
-			</footer>
-			<!-- FOOTER END -->				</div>
-				<!-- BACK-TO-TOP -->
-		<a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
-
-		<!-- JQUERY JS -->
-		<script src="assets/js/jquery-3.4.1.min.js"></script>
-
-		<!-- BOOTSTRAP JS -->
-		<script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-		<script src="assets/plugins/bootstrap/js/popper.min.js"></script>
-
-		<!-- SPARKLINE JS-->
-		<script src="assets/js/jquery.sparkline.min.js"></script>
-
-		<!-- CHART-CIRCLE JS-->
-		<script src="assets/js/circle-progress.min.js"></script>
-
-		<!-- RATING STARJS -->
-		<script src="assets/plugins/rating/jquery.rating-stars.js"></script>
-
-		<!-- EVA-ICONS JS -->
-		<script src="assets/iconfonts/eva.min.js"></script>
-
-		<!-- INPUT MASK JS-->
-		<script src="assets/plugins/input-mask/jquery.mask.min.js"></script>
-
-		<!-- SIDE-MENU JS-->
-		<script src="assets/plugins/sidemenu/sidemenu.js"></script>
-
-		<!-- PERFECT SCROLL BAR js-->
-		<script src="assets/plugins/p-scroll/perfect-scrollbar.min.js"></script>
-		<script src="assets/plugins/sidemenu/sidemenu-scroll.js"></script>
-
-		<!-- CUSTOM SCROLLBAR JS-->
-		<script src="assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
-
-
-				<!-- SIDEBAR JS -->
-		<script src="assets/plugins/sidebar/sidebar.js"></script>
-		<!-- CUSTOM JS -->
-		<script src="assets/js/custom.js"></script>
-		
-		<!-- Swicther JS -->
-		<script src="assets/switcher/js/switcher.js"></script>
-	</body>
-
-
-<!-- Mirrored from laravel.spruko.com/yoha/Sidemenu-Icon-Light/profile by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Oct 2020 12:55:22 GMT -->
-</html>
+<?php include 'include/footer.php' ?>

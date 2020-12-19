@@ -96,7 +96,7 @@ $id = $_SESSION['id'];
 									<path d="M0 0h24v24H0V0z" fill="none" />
 									<path d="M21 11.01L3 11v2h18zM3 16h12v2H3zM21 6H3v2.01L21 8z" /></svg>
 							</a><!-- sidebar-toggle-->
-						
+							
 							<div class="d-flex ml-auto header-right-icons header-search-icon">
 								<button class="navbar-toggler navresponsive-toggler d-md-none" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
 									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" class="navbar-toggler-icon">
@@ -270,12 +270,12 @@ $count1 = mysqli_num_rows($result1);
 										<?php
 									include 'connection.php';
 								
-                        			$query=mysqli_query($con,"SELECT * FROM post WHERE postid = '$id'");
+                        			$query=mysqli_query($con,"SELECT * FROM post");
                         			while($row=mysqli_fetch_array($query))
                         				{ $id = $row['id'];
                         				$date = $row['date'];
                         				$newDate = date("d M Y", strtotime($date));
-    									$new_date = date('dS F, Y', strtotime($newDate)); ?>
+    									$new_date = date('dS F, Y', strtotime($newDate));  ?>
 										<tr>
 											<td><?php echo $row['id']; ?></td>
 											<td><?php echo $row['category']; ?></td>
@@ -424,7 +424,7 @@ $count1 = mysqli_num_rows($result1);
 				</div>
 			</div>
 			<!-- SIDE-BAR CLOSED -->					<!-- FOOTER -->
-			<footer class="footer">
+		<footer class="footer">
 				<div class="container">
 					<div class="row align-items-center flex-row-reverse">
 						<div class="col-md-12 col-sm-12 text-center">

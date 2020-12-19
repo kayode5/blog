@@ -4,20 +4,20 @@
 session_start();
 
 //Check whether the session variable SESS_MEMBER_ID is present or not
-if (!isset($_SESSION['fname']) || !isset($_SESSION['authorid']) ) {
+if (!isset($_SESSION['uname']) || !isset($_SESSION['id']) ) {
     header("location: login.php");
     exit();
 }
 
 
-$name = $_SESSION['fname'];
-$id = $_SESSION['authorid'];
+$name = $_SESSION['uname'];
+$id = $_SESSION['id'];
 ?>
 <!doctype html>
 <html lang="en" dir="ltr">
 
 
-<!-- Mirrored from laravel.spruko.com/yoha/Sidemenu-Icon-Light/form-elements by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Oct 2020 12:55:05 GMT -->
+<!-- Mirrored from laravel.spruko.com/yoha/Sidemenu-Icon-Dark/form-elements by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Oct 2020 12:14:01 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
 
@@ -27,7 +27,7 @@ $id = $_SESSION['authorid'];
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="Yoha –  HTML5 Bootstrap Admin Template">
 	<meta name="author" content="Spruko Technologies Private Limited">
-	<meta name="keywords" content="admin dashboard html template, admin dashboard template bootstrap 4, analytics dashboard templates, best admin template bootstrap 4, best bootstrap admin template, bootstrap 4 template admin, bootstrap admin template premium, bootstrap admin ui, bootstrap basic admin template, cool admin template, dark admin dashboard, dark admin template, dark dashboard template, dashboard template bootstrap 4, ecommerce dashboard template, html5 admin template, light bootstrap dashboard, sales dashboard template, simple dashboard bootstrap 4, template bootstrap 4 admin">
+	<meta name="keywords" content="php admin panel template, laravel dashboard template, best laravel admin panel, laravel admin dashboard, laravel dashboard template, best admin panel for laravel, laravel admin dashboard template, laravel admin template bootstrap 4, laravel bootstrap admin template, best admin panel for laravel, php admin panel template, laravel admin dashboard, laravel admin template bootstrap 4, laravel bootstrap admin template, laravel admin dashboard template,">
 
 	<!-- FAVICON -->
 		<link rel="shortcut icon" type="image/x-icon" href="assets/images/brand/favicon.ico" />
@@ -54,9 +54,9 @@ $id = $_SESSION['authorid'];
 
 		<!--- FONT-ICONS CSS -->
 		<link href="assets/css/icons.css" rel="stylesheet" />
- <!-- INTERNAL  WYSIWYG EDITOR CSS -->
-        <link href="assets/plugins/wysiwyag/richtext.css" rel="stylesheet" />
 
+       <!-- INTERNAL  WYSIWYG EDITOR CSS -->
+        <link href="assets/plugins/wysiwyag/richtext.css" rel="stylesheet" />
 				<!-- INTERNAL  FILE UPLODE CSS -->
 		<link href="assets/plugins/fileuploads/css/fileupload.css" rel="stylesheet" type="text/css" />
 
@@ -85,9 +85,11 @@ $id = $_SESSION['authorid'];
 		
 		<!-- Switcher CSS -->
 		<link href="assets/switcher/css/switcher.css" rel="stylesheet">
-		<link href="assets/switcher/demo.css" rel="stylesheet"></head>
+		<link href="assets/switcher/demo.css" rel="stylesheet">
+		
+		</head>
 
-	<body class="app sidebar-mini">
+	<body class="app sidebar-mini dark-mode">
 		
 		<!-- Start Switcher -->
 		
@@ -100,10 +102,7 @@ $id = $_SESSION['authorid'];
 				<!-- /GLOBAL-LOADER -->
 
 				<!-- PAGE -->
-				<div class="page">
-					<div class="page-main">
-						<!--APP-SIDEBAR-->
-				<?php include 'include/sidebar.php'?>
+				<?php include 'include/sidebar.php'; ?>
 				<!--/APP-SIDEBAR-->						<!-- App-Header -->
 				<div class="app-header header">
 					<div class="container-fluid">
@@ -117,7 +116,18 @@ $id = $_SESSION['authorid'];
 									<path d="M0 0h24v24H0V0z" fill="none" />
 									<path d="M21 11.01L3 11v2h18zM3 16h12v2H3zM21 6H3v2.01L21 8z" /></svg>
 							</a><!-- sidebar-toggle-->
-							
+							<div class="header-search d-none d-md-flex">
+								<form class="form-inline">
+									<div class="search-element">
+										<input type="search" class="form-control header-search" placeholder="Search…" aria-label="Search" tabindex="1">
+										<button class="btn btn-primary-color" type="submit">
+											<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+												<path d="M0 0h24v24H0V0z" fill="none" />
+												<path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" /></svg>
+										</button>
+									</div>
+								</form>
+							</div>
 							<div class="d-flex ml-auto header-right-icons header-search-icon">
 								<button class="navbar-toggler navresponsive-toggler d-md-none" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
 									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" class="navbar-toggler-icon">
@@ -133,15 +143,51 @@ $id = $_SESSION['authorid'];
 									</a>
 								</div><!-- FULL-SCREEN -->
 								<!-- NOTIFICATIONS -->
-								<!-- MESSAGE-BOX -->
-								<?php include 'include/top_header.php' ?>
+							<!-- MESSAGE-BOX -->
+								
+								<?php include 'include/top_profile.php'; ?>
 								<!-- SIDE-MENU -->
 							</div>
 						</div>
 					</div>
 				</div>
 				<!-- responsive-navbar -->
-				<!-- End responsive-navbar -->
+				<div class="mb-1 navbar navbar-expand-lg  responsive-navbar navbar-dark d-md-none bg-white">
+					<div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+						<div class="d-flex order-lg-2 ml-auto">
+							<div class="dropdown d-sm-flex">
+								<a href="#" class="nav-link icon" data-toggle="dropdown">
+									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+										<path d="M0 0h24v24H0V0z" fill="none" />
+										<path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" /></svg>
+								</a>
+								<div class="dropdown-menu header-search dropdown-menu-left">
+									<div class="input-group w-100 p-2">
+										<input type="text" class="form-control " placeholder="Search....">
+										<div class="input-group-append ">
+											<button type="button" class="btn btn-primary ">
+												<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+													<path d="M0 0h24v24H0V0z" fill="none" />
+													<path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" /></svg>
+											</button>
+										</div>
+									</div>
+								</div>
+							</div><!-- SEARCH -->
+							<div class="dropdown d-md-flex">
+								<a class="nav-link icon full-screen-link nav-link-bg">
+									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" class="fullscreen-button">
+										<path d="M0 0h24v24H0V0z" fill="none" />
+										<circle cx="12" cy="12" opacity=".3" r="3" />
+										<path d="M7 12c0 2.76 2.24 5 5 5s5-2.24 5-5-2.24-5-5-5-5 2.24-5 5zm8 0c0 1.65-1.35 3-3 3s-3-1.35-3-3 1.35-3 3-3 3 1.35 3 3zM3 19c0 1.1.9 2 2 2h4v-2H5v-4H3v4zM3 5v4h2V5h4V3H5c-1.1 0-2 .9-2 2zm18 0c0-1.1-.9-2-2-2h-4v2h4v4h2V5zm-2 14h-4v2h4c1.1 0 2-.9 2-2v-4h-2v4z" /></svg>
+								</a>
+							</div><!-- FULL-SCREEN -->
+						<!-- NOTIFICATIONS -->
+							<!-- MESSAGE-BOX -->
+							
+						</div>
+					</div>
+				</div><!-- End responsive-navbar -->
 				<!-- App-Header -->						<!--app-content open-->
 						<div class="app-content">
 							<div class="side-app">
@@ -157,25 +203,16 @@ $id = $_SESSION['authorid'];
 				
 			</div>
 			<!-- PAGE-HEADER END -->
-														<!-- ROW-1 OPEN -->
-			
-			<!-- ROW-1 CLOSED -->
-
-			<!-- ROW-2 OPEN -->
-			
-			<!-- ROW-2 CLOSED -->
-
-			<!-- ROW-3 OPEN -->
-
-				<?php
-                	include'../admin/connection.php'; //including the database config 
+			<!-- ROW-1 OPEN -->
+			      	<?php
+                	include'connection.php'; //including the database config 
                 	if(isset($_POST['post'])) //if the submit button is clicked
                 	{
-						$title=mysqli_real_escape_string($con, htmlspecialchars($_POST['title'])); //get the name inputted on this field
-						$content=mysqli_real_escape_string($con, htmlspecialchars($_POST['content'])); //get the name inputted on this field
+						$title=mysqli_real_escape_string($con, $_POST['title']); //get the name inputted on this field
+						$content=mysqli_real_escape_string($con, $_POST['content']); //get the name inputted on this field
 						$date=date('Y-m-d H:i');
 						$category=$_POST['category']; //get the name inputted on this field
-                		$target = "../admin/images/"; // this is the folder the image files would be moved into
+                		$target = "images/"; // this is the folder the image files would be moved into
 						$target = $target . basename( $_FILES['image']['name']); //get the image and file name to be moved
 						$pic=basename($_FILES['image']['name']);
 						$location = $pic;
@@ -199,7 +236,7 @@ $id = $_SESSION['authorid'];
 
                 	}
                 	?>
-			<form method="post" enctype="multipart/form-data">
+<form method="post" enctype="multipart/form-data">
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="card shadow">
@@ -207,10 +244,11 @@ $id = $_SESSION['authorid'];
 							<h3 class="mb-0 card-title">File upload</h3>
 						</div>
 						<div class="card-body">
-							<input type="file" class="dropify" name="image" data-height="300" />
+							<input type="file" name="image" class="dropify" data-height="300" />
 						</div>
 					</div>
-				</div><!-- COL END -->
+				</div>
+				<!-- COL END -->
 				<div class="col-lg-6">
 					<div class="card">
 						<div class="card-header">
@@ -223,7 +261,7 @@ $id = $_SESSION['authorid'];
 							<div class="form-group">
 								<div class="form-group">
 										<label class="form-label">Title</label>
-										<input type="text" name="title" class="form-control" placeholder="Enter Blog Title">
+										<input type="text" name="title" class="form-control"  placeholder="Enter Blog Title">
 									</div>
 								<label class="form-label"> Select Category</label>
 								<select class="form-control select2-show-search" name="category" data-placeholder="Choose one (with searchbox)">
@@ -231,9 +269,9 @@ $id = $_SESSION['authorid'];
                         			    $query=mysqli_query($con,"SELECT * FROM `category`"); //select and display the fields inside the category table
                         			    while($row=mysqli_fetch_array($query)) // using while loop to run through the query
                         			    { ?>
-									
+									<optgroup label="Styles">
 										<option><?php echo $row['category']; ?></option>
-									
+									</optgroup>
 										<?php } ?>
 								</select>
 
@@ -244,8 +282,9 @@ $id = $_SESSION['authorid'];
 					
 					</div>
 				</div><!-- COL END -->
+			</div>
 
-					<div class="row">
+			<div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
@@ -265,153 +304,19 @@ $id = $_SESSION['authorid'];
                     </div>
                 </div>
             </div>
-			</div>
-			<!-- ROW-3 CLOSED -->
-
-			<!-- ROW-4 OPEN -->
-			
-			<!-- ROW-4 CLOSED -->
-
-			<!-- ROW-5 OPEN -->
-			
-			<!-- ROW-5 CLOSED -->
-
-			<!-- ROW-6 OPEN -->
-			
-			<!-- ROW-6 CLOSED -->
-			 </form>
-							</div><!-- End Page -->
+            </form>
+        </div><!-- End Page -->
 						</div>
-				
+					</div>
 					<!-- CONTAINER END -->
 					<!-- SIDE-BAR -->
-			<div class="sidebar sidebar-right sidebar-animate">
-				<div class="">
-					<a href="#" class="sidebar-icon text-right float-right" data-toggle="sidebar-right" data-target=".sidebar-right"><i class="fe fe-x"></i></a>
-				</div>
-				<div class="p-3 border-bottom">
-					<h5 class="border-bottom-0 mb-0">General Settings</h5>
-				</div>
-				<div class="p-4">
-					<div class="switch-settings">
-						<div class="d-flex mb-2">
-							<span class="mr-auto fs-15">Notifications</span>
-							<label class="custom-switch">
-								<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
-								<span class="custom-switch-indicator"></span>
-							</label>
-						</div>
-						<div class="d-flex mb-2">
-							<span class="mr-auto fs-15">Show your emails</span>
-							<label class="custom-switch">
-								<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
-								<span class="custom-switch-indicator"></span>
-							</label>
-						</div>
-						<div class="d-flex mb-2">
-							<span class="mr-auto fs-15">Show Task statistics</span>
-							<label class="custom-switch">
-								<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
-								<span class="custom-switch-indicator"></span>
-							</label>
-						</div>
-						<div class="d-flex mb-2">
-							<span class="mr-auto fs-15">Show recent activity</span>
-							<label class="custom-switch">
-								<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
-								<span class="custom-switch-indicator"></span>
-							</label>
-						</div>
-						<div class="d-flex mb-2">
-							<span class="mr-auto fs-15">System Logs</span>
-							<label class="custom-switch">
-								<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
-								<span class="custom-switch-indicator"></span>
-							</label>
-						</div>
-						<div class="d-flex mb-2">
-							<span class="mr-auto fs-15">Error Reporting</span>
-							<label class="custom-switch">
-								<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
-								<span class="custom-switch-indicator"></span>
-							</label>
-						</div>
-						<div class="d-flex mb-2">
-							<span class="mr-auto fs-15">Show your status to all</span>
-							<label class="custom-switch">
-								<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
-								<span class="custom-switch-indicator"></span>
-							</label>
-						</div>
-						<div class="d-flex mb-2">
-							<span class="mr-auto fs-15">Keep up to date</span>
-							<label class="custom-switch">
-								<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
-								<span class="custom-switch-indicator"></span>
-							</label>
-						</div>
-					</div>
-				</div>
-				<div class="p-3 border-bottom">
-					<h5 class="border-bottom-0 mb-0">Overview</h5>
-				</div>
-				<div class="p-4">
-					<div class="progress-wrapper">
-						<div class="mb-3">
-							<p class="mb-2">Achieves<span class="float-right text-muted font-weight-normal">80%</span></p>
-							<div class="progress h-1">
-								<div class="progress-bar bg-primary w-80 " role="progressbar"></div>
-							</div>
-						</div>
-					</div>
-					<div class="progress-wrapper pt-2">
-						<div class="mb-3">
-							<p class="mb-2">Projects<span class="float-right text-muted font-weight-normal">60%</span></p>
-							<div class="progress h-1">
-								<div class="progress-bar bg-secondary w-60 " role="progressbar"></div>
-							</div>
-						</div>
-					</div>
-					<div class="progress-wrapper pt-2">
-						<div class="mb-3">
-							<p class="mb-2">Earnings<span class="float-right text-muted font-weight-normal">50%</span></p>
-							<div class="progress h-1">
-								<div class="progress-bar bg-success w-50" role="progressbar"></div>
-							</div>
-						</div>
-					</div>
-					<div class="progress-wrapper pt-2">
-						<div class="mb-3">
-							<p class="mb-2">Balance<span class="float-right text-muted font-weight-normal">45%</span></p>
-							<div class="progress h-1">
-								<div class="progress-bar bg-warning w-45 " role="progressbar"></div>
-							</div>
-						</div>
-					</div>
-					<div class="progress-wrapper pt-2">
-						<div class="mb-3">
-							<p class="mb-2">Toatal Profits<span class="float-right text-muted font-weight-normal">75%</span></p>
-							<div class="progress h-1">
-								<div class="progress-bar bg-danger w-75" role="progressbar"></div>
-							</div>
-						</div>
-					</div>
-					<div class="progress-wrapper pt-2">
-						<div class="mb-3">
-							<p class="mb-2">Total Likes<span class="float-right text-muted font-weight-normal">70%</span></p>
-							<div class="progress h-1">
-								<div class="progress-bar bg-teal w-70" role="progressbar"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			
 			<!-- SIDE-BAR CLOSED -->					<!-- FOOTER -->
 			<footer class="footer">
 				<div class="container">
 					<div class="row align-items-center flex-row-reverse">
 						<div class="col-md-12 col-sm-12 text-center">
-							Copyright © 2020 <a href="#">Yoha</a>. Designed by <a href="#"> Spruko Technologies Pvt.Ltd </a> All rights reserved.
+							Copyright © 2020 <a href="#"></a>.All rights reserved.
 						</div>
 					</div>
 				</div>
@@ -488,7 +393,6 @@ $id = $_SESSION['authorid'];
 		<script src="assets/plugins/sidebar/sidebar.js"></script>
 		<!-- CUSTOM JS -->
 		<script src="assets/js/custom.js"></script>
-		
 
 		        <!-- INTERNAL   WYSIWYG Editor JS -->
         <script src="assets/plugins/wysiwyag/jquery.richtext.js"></script>
@@ -498,5 +402,5 @@ $id = $_SESSION['authorid'];
 	</body>
 
 
-<!-- Mirrored from laravel.spruko.com/yoha/Sidemenu-Icon-Light/form-elements by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Oct 2020 12:55:15 GMT -->
+<!-- Mirrored from laravel.spruko.com/yoha/Sidemenu-Icon-Dark/form-elements by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Oct 2020 12:14:11 GMT -->
 </html>

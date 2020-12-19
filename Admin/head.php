@@ -37,22 +37,6 @@
 		<!--- FONT-ICONS CSS -->
 		<link href="assets/css/icons.css" rel="stylesheet" />
 
-		<link href="assets/plugins/sweet-alert/sweetalert.css" rel="stylesheet" />
-
-
-		        <!-- INTERNAL  WYSIWYG EDITOR CSS -->
-        <link href="assets/plugins/wysiwyag/richtext.css" rel="stylesheet" />
-
-        <!-- INTERNAL SUMMERNOTE CSS -->
-        <link rel="stylesheet" href="assets/plugins/summernote/summernote-bs4.css">
-
-        <!-- INTERNAL FORM WIZARD CSS -->
-        <link rel="stylesheet" href="assets/plugins/formwizard/smart_wizard.css">
-        <link rel="stylesheet" href="assets/plugins/formwizard/smart_wizard_theme_arrows.css">
-        <link rel="stylesheet" href="assets/plugins/formwizard/smart_wizard_theme_circles.css">
-        <link rel="stylesheet" href="assets/plugins/formwizard/smart_wizard_theme_dots.css">
-
-
 
 				<!-- SIDEBAR CSS -->
 		<link href="assets/plugins/sidebar/sidebar.css" rel="stylesheet">

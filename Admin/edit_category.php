@@ -204,20 +204,18 @@ $id = $_SESSION['id'];
 			</div>
 			<!-- PAGE-HEADER END -->
 			<!-- ROW-1 OPEN -->
-			      	<?php
+			      	      	<?php
                 	include'connection.php'; //including the database config 
                 	if(isset($_POST['update'])) //if the submit button is clicked
                 	{
-						$title=mysqli_real_escape_string($con, $_POST['title']); //get the name inputted on this field
-						$content=mysqli_real_escape_string($con, $_POST['content']); //get the name inputted on this field
-						$date=date('Y-m-d H:i');
-						$category=$_POST['category']; //get the name inputted on this field
-                		$target = "images/"; // this is the folder the image files would be moved into
+						$category=mysqli_real_escape_string($con, $_POST['category']); //get the name inputted on this field
+						$content=mysqli_real_escape_string($con, $_POST['content']);
+						$target = "images/"; // this is the folder the image files would be moved into
 						$target = $target . basename( $_FILES['image']['name']); //get the image and file name to be moved
 						$pic=basename($_FILES['image']['name']);
 						$location = $pic;
 						if ($_FILES['image']['type']=='image/jpg' || $_FILES['image']['type']=='image/jpeg' || $_FILES['image']['type']=='image/png'){
-							$query=mysqli_query($con,"UPDATE post SET  title='$title', content='$content', image='$target', category='$category', date='$date' WHERE id='$getid'");
+							$query=mysqli_query($con,"UPDATE category SET image='$target', category='$category', content='$content' WHERE id='$getid'");
 
 						if ($query) { 
 
@@ -237,7 +235,7 @@ $id = $_SESSION['id'];
                 	}
                 	?>
                 	<?php
-                	$query2=mysqli_query($con,"SELECT * FROM `post` WHERE id='$getid'"); // display the field that was clicked by id
+                	$query2=mysqli_query($con,"SELECT * FROM `category` WHERE id='$getid'"); // display the field that was clicked by id
                 	$rows=mysqli_fetch_array($query2);
                 	?>
 <form method="post" enctype="multipart/form-data">
@@ -248,7 +246,7 @@ $id = $_SESSION['id'];
 							<h3 class="mb-0 card-title">File upload</h3>
 						</div>
 						<div class="card-body">
-							<input type="file" value="<?php echo $rows['image']; ?>" name="image" class="dropify" data-height="300" />
+							<input type="file" name="image" class="dropify" data-height="300" />
 						</div>
 					</div>
 				</div>
@@ -256,30 +254,19 @@ $id = $_SESSION['id'];
 				<div class="col-lg-6">
 					<div class="card">
 						<div class="card-header">
-							<h3 class="card-title">Blog Post</h3>
+							<h3 class="card-title">Edit Blog Category</h3>
 						</div>
 						
 							
 						<div class="card-body ">
-							<p class="text-muted">Enter Blog details below</p>
+							<p class="text-muted">Enter Category details below</p>
 
 							<div class="form-group">
 								<div class="form-group">
-										<label class="form-label">Title</label>
-										<input type="text" name="title" class="form-control" name="input" value="<?php echo $rows['title'] ?>">
+										<label class="form-label">Category Name</label>
+										<input type="text" name="category" class="form-control" name="input" value="<?php echo $rows['category'] ?>">
 									</div>
-								<label class="form-label"> Select Category</label>
-								<select class="form-control select2-show-search" name="category" data-placeholder="Choose one (with searchbox)">
-									 <?php 
-                        			    $query=mysqli_query($con,"SELECT * FROM `category`"); //select and display the fields inside the category table
-                        			    while($row=mysqli_fetch_array($query)) // using while loop to run through the query
-                        			    { ?>
-									
-										<option><?php echo $row['category']; ?></option>
-									
-										<?php } ?>
-								</select>
-
+								
 							</div>
 							
 						</div>
@@ -288,27 +275,25 @@ $id = $_SESSION['id'];
 					</div>
 				</div><!-- COL END -->
 			</div>
-
-			<div class="row">
-                <div class="col-12">
+			   <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <div class="card-title">Blog Content</div>
+                            <div class="card-title">Short Description</div>
                         </div>
                         <div class="card-body">
-                            <textarea class="content" name="content"><?php echo $rows['content']; ?></textarea>
+                            <textarea class="content" name="content"><?php echo $rows['content'] ?></textarea>
                         </div>
                         <div class="example">
 									
-										
-						<input name="update" type="submit" value="Update" class="btn btn-success"/>
-						<a href="view_blog.php" class="btn btn-danger">Cancel</a>
+							<input name="update" type="submit" value="Update" class="btn btn-success"/>
+									<a href="view_category.php" class="btn btn-danger">Cancel</a>
+									<a href="view_category.php" class="btn btn-primary">Done</a>
 										
 									
 						</div>
                     </div>
                 </div>
-            </div>
+
             </form>
         </div><!-- End Page -->
 						</div>
@@ -405,7 +390,4 @@ $id = $_SESSION['id'];
 		<!-- Swicther JS -->
 		<script src="assets/switcher/js/switcher.js"></script>
 	</body>
-
-
-<!-- Mirrored from laravel.spruko.com/yoha/Sidemenu-Icon-Dark/form-elements by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Oct 2020 12:14:11 GMT -->
 </html>
