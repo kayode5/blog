@@ -6,7 +6,7 @@ include 'include/header.php';
 ?>
 <body id="bg">
 <div class="page-wraper">
-<!-- <div id="loading-area"></div> -->
+<!--<div id="loading-area"></div> -->
 	
 	<!-- header -->
     <header class="site-header mo-left header-full header">
@@ -56,20 +56,6 @@ include 'include/header.php';
 			<div class="container-fluid">
 				<div class="trending-post-carousel owl-carousel owl-none">
 					<?php
-
-
-// if(isset($_SESSION['name'])){
-
-
-// 	if((time() - $_SESSION['last_time']) > 60) //Time is seconds
-// 			{
-// 				header("location: logout.php");
-// 			}else {
-// 				$_SESSION['last_time'] = time();
-// 				// echo "" .$_SESSION["name"];
-// 				}
-// }
-
 					include 'admin/connection.php';
                			$query=mysqli_query($con,"SELECT * FROM post order by 1 DESC LIMIT 0,8");
                         			while($row=mysqli_fetch_array($query))
@@ -504,8 +490,8 @@ $userid= $_SESSION["userid"];
 										</a>
 									</div>
 									<div class="author-profile-content">
-										<h6 class="title">Hi. I'm Olaitan</h6>
-										<p>I am a fashionist based in Irelandf.</p>
+										<h6 class="title">Hi. I'm Olaitan Oloriburuku Girl</h6>
+										<p>I am a fashionist based in Melbourn.</p>
 										<ul class="social-icon m-b0">
 											<li><a href="javascript:void(0);" class="btn radius-xl"><i class="fa fa-instagram"></i></a></li>
 											<li><a href="javascript:void(0);" class="btn radius-xl"><i class="fa fa-twitter"></i></a></li>

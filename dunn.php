@@ -118,7 +118,7 @@ include 'include/header.php';
 										</div>
 										<h4 class="title"><a href="single_post.php?id=<?php echo $postid ?>">Dunes</a></h4>
 										<div class="dlab-feed-meta">
-											<span>Location: </span><h6>Ilac Centre, Henry Street, Dublin 1, Co. Dublin, D01 A213</h6>
+											<span>Location: </span><h6>Odoguyan Taxi Park, 11 Shagamu Rd, Ikorodu</h6>
 										</div>
 									</div>
 								</div>
@@ -137,7 +137,7 @@ include 'include/header.php';
 										</div>
 										<h4 class="title"><a href="single_post.php?id=<?php echo $postid ?>">Dunes</a></h4>
 										<div class="dlab-feed-meta">
-											<span>Location: </span><h6>Ilac Centre, Henry Street, Dublin 1, Co. Dublin, D01 A213</h6>
+											<span>Location: </span><h6>Odoguyan Taxi Park, 11 Shagamu Rd, Ikorodu</h6>
 										</div>
 									</div>
 								</div>
@@ -157,8 +157,8 @@ include 'include/header.php';
 										</a>
 									</div>
 									<div class="author-profile-content">
-										<h6 class="title">Hi. I'm Olaitan</h6>
-										<p>I am a fashionist based in Ireland.</p>
+										<h6 class="title">Hi. I'm Olaitan Oloriburuku Girl</h6>
+										<p>I am a fashionist based in Melbourn.</p>
 										<ul class="social-icon m-b0">
 											<li><a href="javascript:void(0);" class="btn radius-xl"><i class="fa fa-instagram"></i></a></li>
 											<li><a href="javascript:void(0);" class="btn radius-xl"><i class="fa fa-twitter"></i></a></li>

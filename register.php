@@ -14,10 +14,10 @@ include 'admin/connection.php';
       else  
       {  
           
-           $fullname = mysqli_real_escape_string($con, htmlspecialchars($_POST["name"])); //to prevent xss attack 
-           $email = mysqli_real_escape_string($con, htmlspecialchars($_POST["email"]));  //to prevent xss attack
-           $password = mysqli_real_escape_string($con, htmlspecialchars($_POST["password"]));  //to prevent xss attack
-           $password = password_hash($password, PASSWORD_DEFAULT); //password hashing
+           $fullname = mysqli_real_escape_string($con, $_POST["name"]);
+           $email = mysqli_real_escape_string($con, $_POST["email"]);  
+           $password = mysqli_real_escape_string($con, $_POST["password"]);  
+           $password = password_hash($password, PASSWORD_DEFAULT); 
            $date=date('Y-m-d H:i'); 
            $status='pending';
            
@@ -107,7 +107,6 @@ include 'admin/connection.php';
 							</div>
 						</div>
 						<form method="post" class="Form">
-						<input type="hidden" id="g-token" name="g-token"> <!-- google recaptcha -->
 							<div class="dzFormMsg"></div>
 							<input type="hidden" value="Contact" name="dzToDo">
 							<div class="row">
@@ -141,15 +140,6 @@ include 'admin/connection.php';
 							</div>
 						</form>
 					</div>
-
-					<script>
-						grecaptcha.ready(function() {
-						grecaptcha.execute('6Le3RgoaAAAAAFzIhpS00ML1337OeYniRuyULWuE', {action: 'homepage'}).then(function(token) {
-						document.getElementById("g-token").value = token;
-							});
-							});
-					</script>
-
 					<div class="col-lg-4 col-md-4 col-sm-12 col-12 m-b30">
 						<div class="side-bar sticky-top">
 							<div class="widget widget-author wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
@@ -161,8 +151,8 @@ include 'admin/connection.php';
 										</a>
 									</div>
 									<div class="author-profile-content">
-										<h6 class="title">Hi. I'm Olaitan</h6>
-										<p>I am a fashionist based in Ireland.</p>
+										<h6 class="title">Hi. I'm Olaitan Oloriburuku Girl</h6>
+										<p>I am a fashionist based in Melbourn.</p>
 										<ul class="social-icon m-b0">
 											<li><a href="javascript:void(0);" class="btn radius-xl"><i class="fa fa-instagram"></i></a></li>
 											<li><a href="javascript:void(0);" class="btn radius-xl"><i class="fa fa-twitter"></i></a></li>

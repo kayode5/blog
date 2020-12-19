@@ -66,7 +66,7 @@
 							<div class="dlab-post-info">
 								<div class="dlab-post-text text mt-0">
 									<h2><span>About Me</span></h2>
-									<p class="first-content"> My name is Olly, i am a level 9 student in National College of Ireland. i am also a fashion blogger and occassional a model. I believe life can be seen and understood through fashion and i will love to show the world this view. </p>
+									<p class="first-content">Lorem ipsum dolor sit amet, conse ctetur adipiscing elit. Sed maximus orci ac condi mentum efficitur. Suspendi potenti. Fusce diam felis, ullamcor aca felis sed, volutpat varius tortor. Ut eleifend justo sed quam blandit, vehicula ante hendrerit. Sed condimentum libero vel eros porta, eu malesuada nulla bibendum. Proin varius sollicitudin nulla quis fermentum. Nunc vitae arcu eget diam gravida ultrices finibus nec mi. Maecenas egestas libero. </p>
 								</div>
 								<ul class="social-icon">
 									<li><a href="javascript:void(0);" class="btn radius-xl"><i class="fa fa-instagram"></i></a></li>

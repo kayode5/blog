@@ -199,9 +199,9 @@ $userid= $_SESSION["userid"];
 
                             if(isset($_POST['submit']))
                         {
-                            $fullname = mysqli_real_escape_string($con, htmlspecialchars($_POST['fullname']));
-                            $email = mysqli_real_escape_string($con, htmlspecialchars($_POST['email']));
-                            $comment = mysqli_real_escape_string($con, htmlspecialchars($_POST['comment']));
+                            $fullname = mysqli_real_escape_string($con, $_POST['fullname']);
+                            $email = mysqli_real_escape_string($con, $_POST['email']);
+                            $comment = mysqli_real_escape_string($con, $_POST['comment']);
                             $date = date('Y-m-d H:i:s');
                             
                             
@@ -255,8 +255,8 @@ $userid= $_SESSION["userid"];
 										</a>
 									</div>
 									<div class="author-profile-content">
-										<h6 class="title">Hi. I'm Olaitan</h6>
-										<p>I am a fashionist based in Ireland.</p>
+										<h6 class="title">Hi. I'm Olaitan Oloriburuku Girl</h6>
+										<p>I am a fashionist based in Melbourn.</p>
 										<ul class="social-icon m-b0">
 											<li><a href="javascript:void(0);" class="btn radius-xl"><i class="fa fa-instagram"></i></a></li>
 											<li><a href="javascript:void(0);" class="btn radius-xl"><i class="fa fa-twitter"></i></a></li>
