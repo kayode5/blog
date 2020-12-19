@@ -35,13 +35,4 @@
 	<link rel="stylesheet" type="text/css" href="css/templete.css">
 	<link class="skin" rel="stylesheet" type="text/css" href="css/skin/skin-1.css">
 	
-	<script src="https://www.google.com/recaptcha/api.js?render=6Le3RgoaAAAAAFzIhpS00ML1337OeYniRuyULWuE"></script>
-	<!-- <script>
-		grecaptcha.ready(function() {
-		grecaptcha.execute('6Le3RgoaAAAAAFzIhpS00ML1337OeYniRuyULWuE', {action: 'homepage'}).then(function(token) {
-		document.getElementById("g-token").value = token;
-			});
-			});
-	</script> -->
-	
 </head>
