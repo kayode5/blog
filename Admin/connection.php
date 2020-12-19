@@ -7,7 +7,7 @@ if (!$con) //if connection is not true do this
 }
 //then select the database name blog
 //echo 'Success';
-mysqli_select_db( $con, "olaitan_blog");
+mysqli_select_db( $con, "wagmcqrrf3vtlusd");
 
 //setting timestamp for every date to be used
 date_default_timezone_set("Europe/Dublin");
